@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../../Components/Header";
 import AnimatedPage from "../../Utils/AnimatedPage";
 import FAQMenu from "../Components/FAQMenu";
 
 const About = () => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <AnimatedPage>
       <Header

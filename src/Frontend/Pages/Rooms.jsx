@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useGlobalContext } from "../../Function/Context";
 import AnimatedPage from "../../Utils/AnimatedPage";
 import Header from "../../Components/Header";
@@ -8,7 +8,9 @@ import FAQMenu from "../Components/FAQMenu";
 const Rooms = () => {
   const { Rooms } = useGlobalContext();
 
-  console.log(Rooms);
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   return (
     <AnimatedPage>

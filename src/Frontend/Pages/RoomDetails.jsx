@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import AnimatedPage from "../../Utils/AnimatedPage";
 import Header from "../../Components/Header";
 import FAQMenu from "../Components/FAQMenu";
 
 const RoomDetails = () => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   const location = useLocation();
   const room = location.state;
 
