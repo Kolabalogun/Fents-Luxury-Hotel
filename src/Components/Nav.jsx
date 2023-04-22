@@ -45,7 +45,10 @@ const Navbar = ({ galleryBg }) => {
       >
         <div className="px-2 flex justify-between items-center w-full h-full">
           <div className="flex items-center ">
-            <h1 style={tcolo} className="text-3xl  mr-5   text-white">
+            <h1
+              style={tcolo}
+              className="md:text-3xl text-2xl   mr-5   text-white"
+            >
               Fents Luxury Hotel
             </h1>
           </div>
