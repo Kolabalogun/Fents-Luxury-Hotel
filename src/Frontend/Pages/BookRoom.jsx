@@ -153,10 +153,12 @@ const BookRoom = () => {
                       className="border py-[18px] border-black px-[25px] text-[14px] "
                     />
                     <input
-                      type="text"
-                      name="Room Type"
-                      value={room.RoomName}
-                      placeholder="Room Type"
+                      type="number"
+                      name="DaysofReservation"
+                      //   value={DaysofReservation}
+                      onChange={handleChange}
+                      required
+                      placeholder="Days of Reservation"
                       className="border py-[18px] border-black px-[25px] text-[14px] "
                     />
                   </div>
@@ -165,8 +167,7 @@ const BookRoom = () => {
                       name="description"
                       value={description}
                       onChange={handleChange}
-                      placeholder="Message"
-                      required
+                      placeholder="Special Request"
                       className="border py-[18px] border-black px-[25px] text-[14px]  
                     "
                       rows="10"

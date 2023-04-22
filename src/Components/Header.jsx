@@ -11,9 +11,11 @@ const Header = ({ title, caption, img }) => {
     >
       <Navbar />
 
-      <div className="h-[100vh] justify-center flex  items-center flex-col">
-        <h1 className="text-white py-4 z-30 text-7xl ">{title}</h1>
-        <p className="text-white mt-7 text-xl z-30">{caption}</p>
+      <div className="h-[100vh] justify-center flex text-center px-3  items-center flex-col">
+        <h1 className="text-white py-4 z-30 md:text-7xl  text-4xl">{title}</h1>
+        <p className="text-white md:mt-7 text-base md:text-xl  mt-0  z-30">
+          {caption}
+        </p>
       </div>
 
       <Link

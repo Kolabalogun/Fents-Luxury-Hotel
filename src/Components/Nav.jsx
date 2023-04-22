@@ -182,7 +182,7 @@ const Navbar = ({ galleryBg }) => {
                 navigate("/");
               }}
             >
-              <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer">
+              <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer py-2 font-cumm">
                 Home
               </li>
             </Link>
@@ -199,7 +199,7 @@ const Navbar = ({ galleryBg }) => {
                 navigate("/about");
               }}
             >
-              <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer">
+              <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer py-2 font-cumm">
                 About
               </li>
             </Link>
@@ -217,8 +217,8 @@ const Navbar = ({ galleryBg }) => {
                 navigate("/rooms");
               }}
             >
-              <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer">
-                rooms
+              <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer py-2 font-cumm">
+                Rooms
               </li>
             </Link>
 
@@ -235,7 +235,7 @@ const Navbar = ({ galleryBg }) => {
                 navigate("/gallery");
               }}
             >
-              <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer">
+              <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer py-2 font-cumm">
                 Gallery
               </li>
             </Link> */}
@@ -252,7 +252,7 @@ const Navbar = ({ galleryBg }) => {
                 navigate("/contact");
               }}
             >
-              <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer">
+              <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer py-2 font-cumm">
                 Contact
               </li>
             </Link>
