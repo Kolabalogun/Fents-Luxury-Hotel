@@ -17,7 +17,7 @@ const Rooms = () => {
       <section className="my-20">
         <div className="flex justify-center items-center mb-16 flex-col">
           <h1 className="text-5xl font-light mb-10">Enjoy Your Stay</h1>
-          <p>
+          <p className="text-center px-5">
             A hotel is an establishment that provides paid lodging on a
             short-term basis. Facilities provided may range from a
             modest-quality mattress

@@ -16,25 +16,31 @@ const RoomCard = ({ room, layout }) => {
         style={{ flex: 1 }}
         className="flex flex-col items-center flex-1  justify-center md:mx-6"
       >
-        <h1 className="text-6xl   mb-10">{room.RoomName}</h1>
+        <h1 className="text-6xl mt-7 md:mt-0 text-center  mb-10">
+          {room.RoomName}
+        </h1>
         <div className="roomprice ">
           ${room.PricePerNight}
           <span className="per">/night</span>
         </div>
 
-        <p>{room.RoomDetails}</p>
+        <p className="text-center text-base px-5">{room.RoomDetails}</p>
 
-        <div className="my-5 space-x-4">
-          <Link to="/room" state={room}>
-            <button className=" px-8 py-3 hover:bg-white hover:text-black bg-black border-black border-2  uppercase text-sm font-semibold rounded-sm text-white ">
-              room details
-            </button>
-          </Link>
-          <Link to={`/bookroom/${room.RoomName}`}>
-            <button className="px-8 py-3 hover:bg-black hover:text-white border-black border-2 uppercase text-sm font-semibold rounded-sm text-black ">
-              Book Room
-            </button>
-          </Link>
+        <div className="my-5 flex flex-col md:flex-row space-y-4  md:space-x-4">
+          <>
+            <Link to="/room" state={room}>
+              <button className=" px-8 py-3 hover:bg-white hover:text-black bg-black border-black border-2  uppercase text-sm font-semibold rounded-sm text-white ">
+                room details
+              </button>
+            </Link>
+          </>
+          <>
+            <Link to={`/bookroom/${room.RoomName}`}>
+              <button className="px-8 py-3 hover:bg-black hover:text-white border-black border-2 uppercase text-sm font-semibold rounded-sm text-black ">
+                Book Room
+              </button>
+            </Link>
+          </>
         </div>
       </div>
     </div>

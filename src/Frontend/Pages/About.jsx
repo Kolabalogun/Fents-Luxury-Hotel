@@ -11,14 +11,14 @@ const About = () => {
         caption="Facilities provided may range from a modest-quality mattress in a small room to large suites with bigger."
       />
 
-      <section className="my-20 flex flex-col mx-56">
+      <section className="my-20 flex flex-col mx-5 md:mx-24 xl:mx-56">
         <>
-          <h1 className="text-6xl ]  pb-2 ">History</h1>
+          <h1 className="md:text-6xl text-4xl   pb-2 ">History</h1>
 
-          <div className="h-[2px] w-48 mb-1 bg-black"></div>
-          <div className="h-[2px] w-20 bg-black"></div>
+          <div className="h-[2px] md:w-48 w-28 mb-1 bg-black"></div>
+          <div className="h-[2px] w-14 md:w-20 bg-black"></div>
 
-          <p className="my-12">
+          <p className="my-12 md:texl-xl text-base">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
             eveniet sed magnam consectetur animi qui hic delectus facilis natus
             impedit velit voluptatibus officiis, voluptate quaerat placeat est
@@ -50,10 +50,12 @@ const About = () => {
           </div>
         </>
         <>
-          <h1 className="text-6xl ] mt-20  pb-2 ">More Information</h1>
+          <h1 className="md:text-6xl text-4xl mt-20  pb-2 ">
+            More Information
+          </h1>
 
-          <div className="h-[2px] w-48 mb-1 bg-black"></div>
-          <div className="h-[2px] w-20 bg-black"></div>
+          <div className="h-[2px] md:w-48 w-28 mb-1 bg-black"></div>
+          <div className="h-[2px] w-14 md:w-20 bg-black"></div>
 
           <p className="my-12">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis

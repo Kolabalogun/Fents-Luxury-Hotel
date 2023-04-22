@@ -96,9 +96,9 @@ const BookRoom = () => {
           <>
             <Header title={room?.RoomName} caption="" img={room?.RoomImage} />
 
-            <section className="my-20 flex flex-col mx-56">
+            <section className="my-20 flex flex-col mx-5 md:mx-24 xl:mx-56">
               <>
-                <h1 className="text-6xl ]  pb-2 ">Book Room</h1>
+                <h1 className="md:text-6xl text-4xl  pb-2 ">Book Room</h1>
 
                 <div className="h-[2px] w-48 mb-1 bg-black"></div>
                 <div className="h-[2px] w-20 bg-black"></div>
@@ -181,21 +181,8 @@ const BookRoom = () => {
                     onClick={handleSubmit}
                     className="text-[13px] bg-transparent m-auto font-semibold my-5  flex justify-center items-center border-[2px] border-black px-[34px] py-[9px] text-black  w-[200px] hover:bg-black hover:text-white"
                   >
-                    SEND MESSAGE
+                    BOOK ROOM
                   </button>
-                </div>
-
-                <div className="my-5 space-x-4 mb-14">
-                  <Link to="/bookroom">
-                    <button className="px-8 py-3 hover:bg-black hover:text-white border-black border-2 uppercase text-sm font-semibold rounded-sm text-black ">
-                      Book Room
-                    </button>
-                  </Link>
-                  <Link to="/rooms">
-                    <button className=" px-8 py-3 hover:bg-white hover:text-black bg-black border-black border-2  uppercase text-sm font-semibold rounded-sm text-white ">
-                      see other rooms
-                    </button>
-                  </Link>
                 </div>
               </>
             </section>

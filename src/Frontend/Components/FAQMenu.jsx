@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 
 const FAQMenu = () => {
   return (
-    <div className="py-36  flex items-center justify-center bg-[#e6e6e6]">
-      <h1 className="text-3xl text-black">
+    <div className="md:py-36 py-24  md:px-5 flex items-center justify-center bg-[#e6e6e6]">
+      <h1 className="md:text-3xl text-2xl text-center text-black">
         If you have any special requests, please feel free to{" "}
-        <Link to="/contact">Contact Us</Link> or call us. +12.345.678.9012
+        <Link className="underline border-b" to="/contact">
+          Contact Us
+        </Link>{" "}
+        or call us. +12.345.678.9012
       </h1>
     </div>
   );
