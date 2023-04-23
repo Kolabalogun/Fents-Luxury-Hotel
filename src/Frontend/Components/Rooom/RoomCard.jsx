@@ -24,7 +24,12 @@ const RoomCard = ({ room, layout }) => {
           <span className="per">/night</span>
         </div>
 
-        <p className="text-center text-base px-5">{room.RoomDetails}</p>
+        <div
+          className=" text-sm px-5"
+          dangerouslySetInnerHTML={{
+            __html: `${room?.RoomDetails.substring(0, 650)}...`,
+          }}
+        />
 
         <div className="my-5 flex flex-col md:flex-row space-y-4  md:space-x-4">
           <>

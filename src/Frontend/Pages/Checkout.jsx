@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AnimatedPage from "../../Utils/AnimatedPage";
+import { useLocation } from "react-router-dom";
+import Header from "../../Components/Header";
 
 const Checkout = () => {
   useEffect(() => {
@@ -6,7 +9,7 @@ const Checkout = () => {
   }, []);
 
   const location = useLocation();
-  const room = location.state;
+  const form = location.state;
 
   return (
     <AnimatedPage>

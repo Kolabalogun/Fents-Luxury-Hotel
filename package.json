@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tinymce/tinymce-react": "^4.3.0",
     "daisyui": "^2.51.5",
     "firebase": "^9.19.1",
     "framer-motion": "^10.12.4",

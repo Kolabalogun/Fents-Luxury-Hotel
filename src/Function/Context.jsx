@@ -102,6 +102,8 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const [pageState, pageStateF] = useState("default");
+
   return (
     <AppContext.Provider
       value={{
@@ -115,6 +117,8 @@ const AppProvider = ({ children }) => {
         navigate,
         notification,
         notificationF,
+        pageState,
+        pageStateF,
 
         Rooms,
         handleDeleteRoom,

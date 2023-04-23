@@ -25,7 +25,7 @@ const Header = ({ title, caption, img }) => {
         smooth={true}
         offset={-80}
         duration={800}
-        className="absolute cursor-pointer hover:scale-[0.9]  bottom-5 left-[46%] transition-all duration-200 delay-100  mouse"
+        className="absolute cursor-pointer hover:scale-[0.9]  bottom-5 left-[50%] transition-all duration-200 delay-100  mouse"
       >
         <span className="mouse-wheel"></span>
       </Link>

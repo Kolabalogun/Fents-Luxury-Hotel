@@ -10,6 +10,8 @@ import RoomDetails from "../Frontend/Pages/RoomDetails";
 import BookRoom from "../Frontend/Pages/BookRoom";
 import Auth from "../Frontend/Pages/Auth";
 import Checkout from "../Frontend/Pages/Checkout";
+import Dashboard from "../Backend/Dashboard";
+import Shot from "../Frontend/Pages/Shot";
 
 const Pages = () => {
   const { user } = useGlobalContext();
@@ -24,6 +26,14 @@ const Pages = () => {
       <Route path="/bookroom/:id" element={<BookRoom />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/shot" element={<Shot />} />
+
+      {user && (
+        <>
+          <Route path="/admin" element={<Dashboard />} />
+          <Route path="/admin/updateroom/:id" element={<Dashboard />} />
+        </>
+      )}
     </Routes>
   );
 };

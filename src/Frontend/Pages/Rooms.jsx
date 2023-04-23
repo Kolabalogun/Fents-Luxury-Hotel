@@ -4,6 +4,7 @@ import AnimatedPage from "../../Utils/AnimatedPage";
 import Header from "../../Components/Header";
 import RoomCard from "../Components/Rooom/RoomCard";
 import FAQMenu from "../Components/FAQMenu";
+import Loader from "../../Components/Loader";
 
 const Rooms = () => {
   const { Rooms } = useGlobalContext();
@@ -12,6 +13,10 @@ const Rooms = () => {
     window.scroll(0, 0);
   }, []);
 
+  if (Rooms.length < 1) {
+    return <Loader />;
+  }
+
   return (
     <AnimatedPage>
       <Header title={"Our Rooms"} caption="" />
@@ -19,6 +24,7 @@ const Rooms = () => {
       <section className="my-20">
         <div className="flex justify-center items-center mb-16 flex-col">
           <h1 className="text-5xl font-light mb-10">Enjoy Your Stay</h1>
+
           <p className="text-center px-5">
             A hotel is an establishment that provides paid lodging on a
             short-term basis. Facilities provided may range from a
