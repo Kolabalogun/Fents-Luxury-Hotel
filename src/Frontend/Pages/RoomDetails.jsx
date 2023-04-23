@@ -8,6 +8,7 @@ const RoomDetails = () => {
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
+
   const location = useLocation();
   const room = location.state;
 

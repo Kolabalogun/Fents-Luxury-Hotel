@@ -4,29 +4,45 @@ import AnimatedPage from "../../Utils/AnimatedPage";
 import Header from "../../Components/Header";
 import FAQMenu from "../Components/FAQMenu";
 import { useGlobalContext } from "../../Function/Context";
-
-const initialState = {
-  username: "",
-  email: "",
-  phone: "",
-  subject: "",
-  description: "",
-};
+import { auth } from "../../Utils/Firebase";
 
 const BookRoom = () => {
-  const {
-    setloader,
+  const { setloader, navigate, notification, notificationF, setuser, user } =
+    useGlobalContext();
 
-    showNewsletter,
-    notification,
-    notificationF,
-  } = useGlobalContext();
+  console.log(user);
+
+  const initialState = {
+    username: user?.displayName,
+    email: user?.email,
+    phone: "",
+    numberOfGuest: "",
+    daysOfReservation: "",
+    description: "",
+  };
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        setuser(authUser);
+      } else {
+        navigate("/auth");
+      }
+    });
+  }, []);
 
   const [form, setform] = useState(initialState);
 
   const [dateId, setdateId] = useState("");
 
-  const { username, email, phone, subject, description } = form;
+  const {
+    username,
+    email,
+    phone,
+    daysOfReservation,
+    numberOfGuest,
+    description,
+  } = form;
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -40,7 +56,7 @@ const BookRoom = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username && email && phone && description) {
+    if (username && email && phone && numberOfGuest && daysOfReservation) {
       setloader(true);
       try {
         await addDoc(collection(db, "Messages"), {
@@ -52,7 +68,7 @@ const BookRoom = () => {
           email: email,
         });
         setloader(false);
-        toast.success("Message Sent");
+        toast.success("");
       } catch (error) {
         console.log(error);
         notificationF(error);
@@ -96,14 +112,14 @@ const BookRoom = () => {
           <>
             <Header title={room?.RoomName} caption="" img={room?.RoomImage} />
 
-            <section className="my-20 flex flex-col mx-5 md:mx-24 xl:mx-56">
+            <section className="my-20 flex flex-col mx-5  md:mx-8 xl:mx-56">
               <>
                 <h1 className="md:text-6xl text-4xl  pb-2 ">Book Room</h1>
 
                 <div className="h-[2px] w-48 mb-1 bg-black"></div>
                 <div className="h-[2px] w-20 bg-black"></div>
 
-                <div className="flex  flex-col  my-[30px] md:px-[200px] px-[20px] text-[14px]">
+                <div className="flex  flex-col  my-[30px] sm:px-[50px] md:px-[100px] px-[20px] text-[14px]">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-[10px]">
                     <input
                       type="text"
@@ -112,7 +128,7 @@ const BookRoom = () => {
                       onChange={handleChange}
                       placeholder="Name"
                       required
-                      className="border py-[18px] border-black px-[25px] text-[14px] "
+                      className="border py-[18px] border-black  bg-white px-[25px] text-[14px] "
                     />
                     <input
                       type="email"
@@ -121,7 +137,7 @@ const BookRoom = () => {
                       onChange={handleChange}
                       placeholder="Email"
                       required
-                      className="border py-[18px] border-black px-[25px] text-[14px] "
+                      className="border py-[18px] border-black bg-white px-[25px] text-[14px] "
                     />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2  gap-3 my-[10px]">
@@ -132,34 +148,34 @@ const BookRoom = () => {
                       onChange={handleChange}
                       placeholder="Phone"
                       required
-                      className="border py-[18px] border-black px-[25px] text-[14px] "
+                      className="border py-[18px] border-black bg-white px-[25px] text-[14px] "
                     />
                     <input
                       type="text"
                       name="Room Type"
                       value={room.RoomName}
                       placeholder="Room Type"
-                      className="border py-[18px] border-black px-[25px] text-[14px] "
+                      className="border py-[18px] border-black bg-white px-[25px] text-[14px] "
                     />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2  gap-3 my-[10px]">
                     <input
                       type="number"
-                      name="numberofGuest"
-                      //   value={numberofGuest}
+                      name="numberOfGuest"
+                      value={numberOfGuest}
                       onChange={handleChange}
                       placeholder="Number of Guest"
                       required
-                      className="border py-[18px] border-black px-[25px] text-[14px] "
+                      className="border py-[18px] border-black bg-white px-[25px] text-[14px] "
                     />
                     <input
                       type="number"
-                      name="DaysofReservation"
-                      //   value={DaysofReservation}
+                      name="daysOfReservation"
+                      value={daysOfReservation}
                       onChange={handleChange}
                       required
                       placeholder="Days of Reservation"
-                      className="border py-[18px] border-black px-[25px] text-[14px] "
+                      className="border py-[18px] border-black bg-white px-[25px] text-[14px] "
                     />
                   </div>
                   <div className="grid grid-cols-1 gap-3 my-[10px]">
@@ -168,7 +184,7 @@ const BookRoom = () => {
                       value={description}
                       onChange={handleChange}
                       placeholder="Special Request"
-                      className="border py-[18px] border-black px-[25px] text-[14px]  
+                      className="border py-[18px] border-black bg-white px-[25px] text-[14px]  
                     "
                       rows="10"
                     />
@@ -177,12 +193,14 @@ const BookRoom = () => {
                     {notification}
                   </p>
 
-                  <button
-                    onClick={handleSubmit}
-                    className="text-[13px] bg-transparent m-auto font-semibold my-5  flex justify-center items-center border-[2px] border-black px-[34px] py-[9px] text-black  w-[200px] hover:bg-black hover:text-white"
-                  >
-                    BOOK ROOM
-                  </button>
+                  <Link to="/checkout" state={form}>
+                    <button
+                      onClick={handleSubmit}
+                      className="text-[13px] bg-transparent m-auto font-semibold my-5  flex justify-center items-center border-[2px] border-black px-[34px] py-[9px] text-black  hover:bg-black hover:text-white"
+                    >
+                      PROCEED TO PAYMENT
+                    </button>
+                  </Link>
                 </div>
               </>
             </section>

@@ -15,6 +15,9 @@ body {
   position: relative;
 }
 
+.font-rob {
+  font-family: "Roboto", sans-serif;
+}
 .font-cumm {
   font-family: "Cormorant Garamond", serif;
 }
@@ -58,6 +61,7 @@ a {
 }
 
 a,
+Link,
 a:hover {
   text-decoration: none;
 }
@@ -117,12 +121,12 @@ a:hover {
 
 /* nav links effects */
 
-.link {
+.linkcss {
   position: relative;
   display: inline-block;
 }
 
-.link::before {
+.linkcss::before {
   content: "";
   position: absolute;
   left: 0;
@@ -135,15 +139,15 @@ a:hover {
   transform-origin: left;
   transition: scale 0.25s;
 }
-.link:hover::before {
+.linkcss:hover::before {
   scale: 1;
 }
-.linked {
+.linkedcss {
   position: relative;
   display: inline-block;
 }
 
-.linked::before {
+.linkedcss::before {
   content: "";
   position: absolute;
   left: 0;
@@ -156,6 +160,6 @@ a:hover {
   transform-origin: left;
   transition: scale 0.25s;
 }
-.linked:hover::before {
+.linkedcss:hover::before {
   scale: 1;
 }

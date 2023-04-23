@@ -3,8 +3,10 @@ import { Link } from "react-scroll";
 import { useGlobalContext } from "../Function/Context";
 
 const Navbar = ({ galleryBg }) => {
-  const { navigate } = useGlobalContext();
+  const { navigate, user, handleLogout } = useGlobalContext();
   const [nav, setnav] = useState(false);
+
+  let username = user?.displayName;
 
   function handleNavClick() {
     setnav(!nav);
@@ -65,8 +67,8 @@ const Navbar = ({ galleryBg }) => {
               style={tcolo}
               className={
                 windowHeight > 0
-                  ? " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 linked m-4 text-white"
-                  : " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 link m-4 text-white  "
+                  ? " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 linkedcss m-4 text-white"
+                  : " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 linkcss m-4 text-white  "
               }
               onClick={() => {
                 navigate("/");
@@ -84,8 +86,8 @@ const Navbar = ({ galleryBg }) => {
               style={tcolo}
               className={
                 windowHeight > 0
-                  ? " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 linked m-4 text-white"
-                  : " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 link m-4 text-white  "
+                  ? " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 linkedcss m-4 text-white"
+                  : " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 linkcss m-4 text-white  "
               }
               onClick={() => {
                 navigate("/about");
@@ -103,8 +105,8 @@ const Navbar = ({ galleryBg }) => {
               style={tcolo}
               className={
                 windowHeight > 0
-                  ? " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 linked m-4 text-white"
-                  : " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 link m-4 text-white  "
+                  ? " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 linkedcss m-4 text-white"
+                  : " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 linkcss m-4 text-white  "
               }
               onClick={() => {
                 navigate("/rooms");
@@ -112,25 +114,6 @@ const Navbar = ({ galleryBg }) => {
             >
               rooms
             </Link>
-            {/* <Link
-              activeClass="active"
-              to="/project"
-              spy={true}
-              smooth={true}
-              offset={-80}
-              duration={500}
-              style={tcolo}
-              className={
-                windowHeight > 0
-                  ? " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 linked m-4 text-white"
-                  : " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 link m-4 text-white  "
-              }
-              onClick={() => {
-                navigate("/gallery");
-              }}
-            >
-              Gallery
-            </Link> */}
 
             <Link
               activeClass="active"
@@ -142,8 +125,8 @@ const Navbar = ({ galleryBg }) => {
               style={tcolo}
               className={
                 windowHeight > 0
-                  ? " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 linked m-4 text-white"
-                  : " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 link m-4 text-white  "
+                  ? " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 linkedcss m-4 text-white"
+                  : " text-[15px]  font-cumm uppercase cursor-pointer  border-b-zinc-300 py-2 linkcss m-4 text-white  "
               }
               onClick={() => {
                 navigate("/contact");
@@ -151,6 +134,45 @@ const Navbar = ({ galleryBg }) => {
             >
               Contact
             </Link>
+            {user ? (
+              <div className="dropdown py-2 mx-4 dropdown-hover">
+                <label>
+                  <div className="avatar online placeholder">
+                    <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
+                      <span className="text-xl">{username?.charAt(0)}</span>
+                    </div>
+                  </div>
+                </label>
+                <ul tabIndex={0} className="dropdown-content menu p-1 shadow">
+                  <li>
+                    <button
+                      onClick={handleLogout}
+                      className="mt-3   text-[15px]  font-cumm uppercase cursor-pointer bg-red-600 px-5 font-semibold  border-b-zinc-300 py-2 w-28 text-white  rounded-lg"
+                    >
+                      Log Out
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link
+                activeClass="active"
+                to="/auth"
+                spy={true}
+                smooth={true}
+                offset={-80}
+                duration={500}
+                style={tcolo}
+                className={`
+               ${windowHeight > 0 ? "linkedcss" : " linkcss"} 
+              text-[15px]  font-cumm uppercase cursor-pointer bg-black px-5 font-semibold  border-b-zinc-300 py-2  m-4 text-white  rounded-lg `}
+                onClick={() => {
+                  navigate("/auth");
+                }}
+              >
+                LOG in
+              </Link>
+            )}
           </ul>
 
           <div className="md:hidden cursor-pointer" onClick={handleNavClick}>
@@ -257,6 +279,23 @@ const Navbar = ({ galleryBg }) => {
             >
               <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer py-3 font-cumm">
                 Contact
+              </li>
+            </Link>
+            <Link
+              activeClass="active"
+              to="/auth"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={500}
+              style={tcolo}
+              className="border-b-2  border-zinc-300 w-full cursor-pointer"
+              onClick={() => {
+                navigate("/auth");
+              }}
+            >
+              <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer py-3 font-cumm">
+                Log In
               </li>
             </Link>
           </ul>
