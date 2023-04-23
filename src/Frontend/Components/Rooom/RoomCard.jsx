@@ -31,7 +31,7 @@ const RoomCard = ({ room, layout }) => {
           }}
         />
 
-        <div className="my-5 flex flex-col md:flex-row space-y-4  md:space-x-4">
+        <div className="my-5 flex flex-col md:flex-row gap-5 ">
           <>
             <Link to="/room" state={room}>
               <button className=" px-8 py-3 hover:bg-white hover:text-black bg-black border-black border-2  uppercase text-sm font-semibold rounded-sm text-white ">
@@ -41,7 +41,7 @@ const RoomCard = ({ room, layout }) => {
           </>
           <>
             <Link to={`/bookroom/${room.RoomName}`}>
-              <button className="px-8 py-3 hover:bg-black hover:text-white border-black border-2 uppercase text-sm font-semibold rounded-sm text-black ">
+              <button className="px-8 py-3 hover:bg-black hover:text-white border-black border-2 uppercase text-sm font-semibold rounded-sm text-black w-full">
                 Book Room
               </button>
             </Link>

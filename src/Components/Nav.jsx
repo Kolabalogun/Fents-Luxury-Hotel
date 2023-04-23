@@ -146,8 +146,16 @@ const Navbar = ({ galleryBg }) => {
                 <ul tabIndex={0} className="dropdown-content menu p-1 shadow">
                   <li>
                     <button
+                      onClick={() => navigate("/userprofile")}
+                      className="mt-3   text-[15px]  font-cumm uppercase cursor-pointer px-5 font-semibold  border-b-zinc-300 py-2 w-36 bg-[#111318] text-white  rounded-lg"
+                    >
+                      View Profile
+                    </button>
+                  </li>
+                  <li>
+                    <button
                       onClick={handleLogout}
-                      className="mt-3   text-[15px]  font-cumm uppercase cursor-pointer bg-red-600 px-5 font-semibold  border-b-zinc-300 py-2 w-28 text-white  rounded-lg"
+                      className="mt-3   text-[15px]  font-cumm uppercase cursor-pointer bg-red-600 px-5 font-semibold  border-b-zinc-300 py-2 w-36 text-white  rounded-lg"
                     >
                       Log Out
                     </button>
@@ -247,23 +255,6 @@ const Navbar = ({ galleryBg }) => {
               </li>
             </Link>
 
-            {/* <Link
-              activeClass="active"
-              to="/contact"
-              spy={true}
-              smooth={true}
-              offset={-80}
-              duration={500}
-              style={tcolo}
-              className="border-b-2  border-zinc-300 w-full cursor-pointer"
-              onClick={() => {
-                navigate("/gallery");
-              }}
-            >
-              <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer py-3 font-cumm">
-                Gallery
-              </li>
-            </Link> */}
             <Link
               activeClass="active"
               to="/contact"
@@ -281,23 +272,62 @@ const Navbar = ({ galleryBg }) => {
                 Contact
               </li>
             </Link>
-            <Link
-              activeClass="active"
-              to="/auth"
-              spy={true}
-              smooth={true}
-              offset={-80}
-              duration={500}
-              style={tcolo}
-              className="border-b-2  border-zinc-300 w-full cursor-pointer"
-              onClick={() => {
-                navigate("/auth");
-              }}
-            >
-              <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer py-3 font-cumm">
-                Log In
-              </li>
-            </Link>
+            {user ? (
+              <>
+                <Link
+                  activeClass="active"
+                  to="/userprofile"
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                  style={tcolo}
+                  className="border-b-2  border-zinc-300 w-full cursor-pointer"
+                  onClick={() => {
+                    navigate("/userprofile");
+                  }}
+                >
+                  <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer py-3 font-cumm">
+                    View Profile
+                  </li>
+                </Link>
+                <Link
+                  activeClass="active"
+                  to="/auth"
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                  style={tcolo}
+                  className="border-b-2  border-zinc-300 w-full cursor-pointer"
+                  onClick={() => {
+                    handleLogout();
+                  }}
+                >
+                  <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer py-3 font-cumm">
+                    Log Out
+                  </li>
+                </Link>
+              </>
+            ) : (
+              <Link
+                activeClass="active"
+                to="/auth"
+                spy={true}
+                smooth={true}
+                offset={-80}
+                duration={500}
+                style={tcolo}
+                className="border-b-2  border-zinc-300 w-full cursor-pointer"
+                onClick={() => {
+                  navigate("/auth");
+                }}
+              >
+                <li className="border-b-2  text-black border-zinc-300 w-full cursor-pointer py-3 font-cumm">
+                  Log In
+                </li>
+              </Link>
+            )}
           </ul>
         )}
       </div>
