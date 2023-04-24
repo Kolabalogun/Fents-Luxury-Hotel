@@ -13,6 +13,7 @@ import Checkout from "../Frontend/Pages/Checkout";
 import Dashboard from "../Backend/Dashboard";
 import Shot from "../Frontend/Pages/Shot";
 import Profile from "../Frontend/Pages/Profile";
+import Thankyou from "../Frontend/Pages/Thankyou";
 
 const Pages = () => {
   const { user } = useGlobalContext();
@@ -25,9 +26,10 @@ const Pages = () => {
       <Route path="/rooms" element={<Rooms />} />
       <Route path="/room" element={<RoomDetails />} />
       <Route path="/bookroom/:id" element={<BookRoom />} />
-      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/checkout/:id" element={<Checkout />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/userprofile" element={<Profile />} />
+      <Route path="/thankyou" element={<Thankyou />} />
       <Route path="/shot" element={<Shot />} />
 
       {user && (
