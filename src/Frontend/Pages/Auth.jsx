@@ -94,7 +94,7 @@ const Auth = () => {
         style={{ backgroundImage: "url('slider_1.jpg')" }}
       >
         <div className="bg-black absolute opacity-60 h-screen w-full"></div>
-        <div className="bg-black absolute opacity-60 z-1 h-[55vh] w-full md:w-[55vh]"></div>
+        <div className="bg-black absolute opacity-60 z-1 h-[65vh] w-full md:w-[55vh]"></div>
 
         <div className=" flex  z-1 flex-col  font-rob text-center  ">
           <h1 className="text-white font-rubik text-[30px] font-bold bg-transparent z-30">

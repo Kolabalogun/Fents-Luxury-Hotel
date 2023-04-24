@@ -21,7 +21,7 @@ const BookRoom = () => {
     email: user?.email,
     phone: "",
     numberOfGuest: "",
-    daysOfReservation: "",
+
     description: "",
     roomType: id,
   };
@@ -38,13 +38,35 @@ const BookRoom = () => {
 
   const [form, setform] = useState(initialState);
 
+  const [checkIn, setCheckIn] = useState("");
+  const [checkOut, setCheckOut] = useState("");
+  const [numDays, setNumDays] = useState("");
+
+  const handleCheckInChange = (e) => {
+    setCheckIn(e.target.value);
+    if (checkOut) {
+      const diffTime = Math.abs(new Date(checkOut) - new Date(e.target.value));
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      setNumDays(diffDays);
+    }
+  };
+
+  const handleCheckOutChange = (e) => {
+    setCheckOut(e.target.value);
+    if (checkIn) {
+      const diffTime = Math.abs(new Date(e.target.value) - new Date(checkIn));
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      setNumDays(diffDays);
+    }
+  };
+
   const [dateId, setdateId] = useState("");
 
   const {
     username,
     email,
     phone,
-    daysOfReservation,
+
     numberOfGuest,
     description,
   } = form;
@@ -61,12 +83,16 @@ const BookRoom = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username && email && phone && numberOfGuest && daysOfReservation) {
+    if (username && email && phone && numberOfGuest && numDays) {
       setloader(true);
       try {
         await addDoc(collection(db, "Booking"), {
           ...form,
           dateId: dateId,
+          userId: user.uid,
+          daysOfReservation: numDays,
+          checkIn,
+          checkOut,
           timestamp: serverTimestamp(),
         });
         await addDoc(collection(db, "Newsletter"), {
@@ -74,7 +100,7 @@ const BookRoom = () => {
         });
         setloader(false);
         toast.success("Book Successful");
-        navigate(`/checkout/${id}`, { form });
+        navigate(`/thankyou`);
       } catch (error) {
         console.log(error);
         notificationF(error);
@@ -87,7 +113,15 @@ const BookRoom = () => {
   const [checkoutStep, setcheckoutStep] = useState(false);
 
   function handleNextcheckoutStep(params) {
-    if (username && email && phone && numberOfGuest && daysOfReservation) {
+    if (
+      username &&
+      email &&
+      phone &&
+      numberOfGuest &&
+      numDays &&
+      checkIn &&
+      checkOut
+    ) {
       setcheckoutStep(true);
     } else {
       return toast.error("All fields must be filled");
@@ -134,7 +168,7 @@ const BookRoom = () => {
                   <div className="h-[2px] w-48 mb-1 bg-black"></div>
                   <div className="h-[2px] w-20 bg-black"></div>
 
-                  <div className="flex  flex-col  my-[30px] sm:px-[50px] md:px-[100px] px-[20px] text-[14px]">
+                  <div className="flex  flex-col  my-[30px] sm:px-[50px] md:px-[100px] px-[5px] text-[14px]">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-[10px]">
                       <input
                         type="text"
@@ -175,6 +209,33 @@ const BookRoom = () => {
                       />
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2  gap-3 my-[10px]">
+                      <div className="flex flex-col">
+                        <label htmlFor="checkin">Check-in:</label>
+                        <input
+                          type="date"
+                          id="checkin"
+                          value={checkIn}
+                          onChange={handleCheckInChange}
+                          placeholder="Check In Date"
+                          required
+                          className="border py-[18px] border-black  px-[25px] text-[14px] "
+                        />
+                      </div>
+
+                      <div className="flex flex-col">
+                        <label htmlFor="checkin">Check-out:</label>
+                        <input
+                          type="date"
+                          placeholder="Check Out Date"
+                          id="checkout"
+                          value={checkOut}
+                          onChange={handleCheckOutChange}
+                          required
+                          className="border py-[18px] border-black  px-[25px] text-[14px] "
+                        />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2  gap-3 my-[10px]">
                       <input
                         type="number"
                         name="numberOfGuest"
@@ -184,16 +245,17 @@ const BookRoom = () => {
                         required
                         className="border py-[18px] border-black bg-white px-[25px] text-[14px] "
                       />
+
                       <input
                         type="number"
-                        name="daysOfReservation"
-                        value={daysOfReservation}
-                        onChange={handleChange}
-                        required
+                        id="numdays"
+                        value={numDays}
+                        readOnly
                         placeholder="Days of Reservation"
                         className="border py-[18px] border-black bg-white px-[25px] text-[14px] "
                       />
                     </div>
+
                     <div className="grid grid-cols-1 gap-3 my-[10px]">
                       <textarea
                         name="description"
@@ -222,7 +284,16 @@ const BookRoom = () => {
               )}
             </section>
 
-            {checkoutStep && <Checkout form={form} room={room} />}
+            {checkoutStep && (
+              <Checkout
+                form={form}
+                checkIn={checkIn}
+                checkOut={checkOut}
+                numDays={numDays}
+                room={room}
+                handleSubmit={handleSubmit}
+              />
+            )}
           </>
         );
       })}

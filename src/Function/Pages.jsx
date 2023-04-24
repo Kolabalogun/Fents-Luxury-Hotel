@@ -14,6 +14,7 @@ import Dashboard from "../Backend/Dashboard";
 import Shot from "../Frontend/Pages/Shot";
 import Profile from "../Frontend/Pages/Profile";
 import Thankyou from "../Frontend/Pages/Thankyou";
+import DateInput from "../Frontend/Pages/Demo";
 
 const Pages = () => {
   const { user } = useGlobalContext();
@@ -31,6 +32,7 @@ const Pages = () => {
       <Route path="/userprofile" element={<Profile />} />
       <Route path="/thankyou" element={<Thankyou />} />
       <Route path="/shot" element={<Shot />} />
+      <Route path="/demo" element={<DateInput />} />
 
       {user && (
         <>
