@@ -91,7 +91,7 @@ const Contact = () => {
               onChange={handleChange}
               placeholder="Name"
               required
-              className="border py-[18px] border-black px-[25px] text-[14px] "
+              className="border py-[18px] border-black bg-white px-[25px] text-[14px] "
             />
             <input
               type="email"
@@ -100,7 +100,7 @@ const Contact = () => {
               onChange={handleChange}
               placeholder="Email"
               required
-              className="border py-[18px] border-black px-[25px] text-[14px] "
+              className="border py-[18px] border-black bg-white px-[25px] text-[14px] "
             />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2  gap-3 my-[10px]">
@@ -111,7 +111,7 @@ const Contact = () => {
               onChange={handleChange}
               placeholder="Phone"
               required
-              className="border py-[18px] border-black px-[25px] text-[14px] "
+              className="border py-[18px] border-black bg-white px-[25px] text-[14px] "
             />
             <input
               type="text"
@@ -119,7 +119,7 @@ const Contact = () => {
               value={subject}
               onChange={handleChange}
               placeholder="Subject"
-              className="border py-[18px] border-black px-[25px] text-[14px] "
+              className="border py-[18px] border-black bg-white px-[25px] text-[14px] "
             />
           </div>
           <div className="grid grid-cols-1 gap-3 my-[10px]">
@@ -129,7 +129,7 @@ const Contact = () => {
               onChange={handleChange}
               placeholder="Message"
               required
-              className="border py-[18px] border-black px-[25px] text-[14px]  
+              className="border py-[18px] border-black bg-white px-[25px] text-[14px]  
                     "
               rows="10"
             />
@@ -138,7 +138,7 @@ const Contact = () => {
 
           <button
             onClick={handleSubmit}
-            className="text-[13px] bg-transparent m-auto font-semibold my-5  flex justify-center items-center border-[2px] border-black px-[34px] py-[9px] text-black  w-[200px] hover:bg-black hover:text-white"
+            className="text-[13px] bg-transparent m-auto font-semibold my-5  flex justify-center items-center border-[2px] border-black bg-white px-[34px] py-[9px] text-black  w-[200px] hover:bg-black hover:text-white"
           >
             SEND MESSAGE
           </button>

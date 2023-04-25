@@ -172,8 +172,8 @@ a:hover {
   background-color: #101924;
   display: flex;
   flex-direction: column;
-  padding: 20px 10px;
-  align-items: center;
+  padding: 20px 15px;
+  /* align-items: center; */
 
   overflow-y: hidden;
   position: fixed;
@@ -200,7 +200,7 @@ a:hover {
 .eachmenu {
   display: flex;
   align-items: center;
-  padding: 12px 35px;
+  padding: 12px 0px;
   border-radius: 10px;
   margin: 10px 0;
   cursor: pointer;
@@ -211,12 +211,13 @@ a:hover {
 }
 .eachmenu > p {
   margin-left: 10px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  color: #fff;
+  /* color: #fff; */
 }
 .activemenu {
-  background-color: white;
+  /* background-color: white; */
+  color: #6e84f3;
 }
 
 /* my Global CSS  */

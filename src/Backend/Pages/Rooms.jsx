@@ -28,11 +28,14 @@ const AdminRooms = () => {
     id && setstate(false);
   }, [id]);
 
-  if (!Rooms || Rooms.length < 1) {
-    return <Loader />;
+  if (loader) {
+    return (
+      <div className="bg-[#f5f6f7] w-full  min-h-[100vh] px-4 py-1 pb-4 h-full dashboard">
+        <Navbar />
+        <Loader />
+      </div>
+    );
   }
-
-  console.log(Rooms);
 
   return (
     <div className="bg-[#f5f6f7] w-full  min-h-[100vh] px-4 py-1 pb-4 h-full dashboard">
@@ -54,43 +57,47 @@ const AdminRooms = () => {
             </div>
 
             <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 my-5 mx-3">
-              {Rooms?.map((room, index) => (
-                <div className="flex flex-col" key={index}>
-                  <div className="cursor-pointer rounded-lg  shadow-2xl">
-                    <img
-                      src={room?.RoomImage}
-                      alt="roomImg"
-                      className="w-[100%] rounded-lg  h-[300px]"
-                    />
-                  </div>
-                  <div className="p-1 py-6 flex flex-col">
-                    <h2 className="font-semibold text-2xl text-[#344767]">
-                      {room?.RoomName}
-                    </h2>
+              {Rooms.length > 0 ? (
+                Rooms?.map((room, index) => (
+                  <div className="flex flex-col" key={index}>
+                    <div className="cursor-pointer rounded-lg  shadow-2xl">
+                      <img
+                        src={room?.RoomImage}
+                        alt="roomImg"
+                        className="w-[100%] rounded-lg  h-[300px]"
+                      />
+                    </div>
+                    <div className="p-1 py-6 flex flex-col">
+                      <h2 className="font-semibold text-2xl text-[#344767]">
+                        {room?.RoomName}
+                      </h2>
 
-                    <div
-                      className="py-4 text-[13px]"
-                      dangerouslySetInnerHTML={{
-                        __html: `${room?.RoomDetails.substring(0, 150)}...`,
-                      }}
-                    />
+                      <div
+                        className="py-4 text-[13px]"
+                        dangerouslySetInnerHTML={{
+                          __html: `${room?.RoomDetails.substring(0, 150)}...`,
+                        }}
+                      />
 
-                    <div className="flex justify-between">
-                      <Link to={`/admin/updateroom/${room?.id}`}>
-                        <button className="btn btn-primary uppercase ">
-                          EDIT room
+                      <div className="flex justify-between">
+                        <Link to={`/admin/updateroom/${room?.id}`}>
+                          <button className="btn btn-primary uppercase ">
+                            EDIT room
+                          </button>
+                        </Link>
+                        <button
+                          onClick={() => handleDeleteRoom(room?.id)}
+                          className="btn btn-outline btn-secondary uppercase "
+                        >
+                          DELETE room
                         </button>
-                      </Link>
-                      <button
-                        onClick={() => handleDeleteRoom(room?.id)}
-                        className="btn btn-outline btn-secondary uppercase "
-                      >
-                        DELETE room
-                      </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))
+              ) : (
+                <li>No Room Available</li>
+              )}
 
               <div
                 onClick={handleState}

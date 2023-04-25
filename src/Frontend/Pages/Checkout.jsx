@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 
 const Checkout = ({ form, room, checkIn, checkOut, numDays, handleSubmit }) => {
   return (
-    <section className="my-14 flex flex-col mx-5 md:mx-24 xl:mx-56">
+    <section className="my-5 md:my-14 flex flex-col mx-5 md:mx-24 xl:mx-56">
       <>
-        <h1 className="md:text-6xl text-2xl   pb-2 ">Checkout</h1>
+        <h1 className="md:text-6xl text-3xl   pb-2 ">Checkout</h1>
 
         <div className="h-[2px] md:w-48 w-28 mb-1 bg-black"></div>
         <div className="h-[2px] w-14 md:w-20 bg-black"></div>

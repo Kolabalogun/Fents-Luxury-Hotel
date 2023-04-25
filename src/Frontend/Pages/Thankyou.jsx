@@ -30,18 +30,20 @@ const Thankyou = () => {
               <h1 className="text-4xl font-bold font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
                 Thank You !
               </h1>
-              <p className="mb-4">
+              <p className="mb-4 text-center">
                 Thank you for your booking with us. Proceed to our Hotel with
                 your Booking Details
               </p>
-              <div className="flex items-center justify-center gap-6">
-                <Link to="/">
-                  <button className="btn btn-active btn-primary w-full">
+              <div className="flex  flex-col md:flex-row items-center justify-center gap-6">
+                <Link className="w-full" to="/">
+                  <button className="btn btn-active btn-primary font-cumm text-xl w-full">
                     Home
                   </button>
                 </Link>
                 <Link to="/userprofile">
-                  <button className="btn btn-accent">Check Bookings</button>
+                  <button className="btn btn-accent font-cumm text-xl ">
+                    Check Bookings
+                  </button>
                 </Link>
               </div>
             </div>

@@ -7,13 +7,13 @@ import FAQMenu from "../Components/FAQMenu";
 import Loader from "../../Components/Loader";
 
 const Rooms = () => {
-  const { Rooms } = useGlobalContext();
+  const { Rooms, loader } = useGlobalContext();
 
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
 
-  if (Rooms.length < 1) {
+  if (loader) {
     return <Loader />;
   }
 
@@ -33,7 +33,7 @@ const Rooms = () => {
         </div>
 
         <div className="">
-          {Rooms ? (
+          {Rooms.length > 0 ? (
             Rooms.map((room, index) => {
               return (
                 <RoomCard

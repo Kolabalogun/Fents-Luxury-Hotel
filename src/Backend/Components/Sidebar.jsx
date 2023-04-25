@@ -5,98 +5,74 @@ const Sidebar = () => {
   const { pageState, pageStateF } = useGlobalContext();
   return (
     <div className="adminSidebar w-[13%] bg-[#101924]  shadow-lg">
-      <h3 className="font-rob text-white">FENT HOTEL</h3>
+      <h3 className="font-cumm text-center text-3xl text-white">FENT HOTEL</h3>
 
       <div className="menus ">
-        <div
-          onClick={() => {
-            pageStateF("default");
-          }}
-          className={
-            pageState === "default" ? "activemenu eachmenu " : "eachmenu "
-          }
-        >
-          <img src="svg/house.svg" style={{ height: 20 }} alt="" />
-          <p>Home</p>
-        </div>
-
-        <div
-          onClick={() => {
-            pageStateF("rooms");
-          }}
-          className={
-            pageState === "rooms" ? "activemenu eachmenu " : "eachmenu "
-          }
-        >
-          <img src="svg/book.svg" alt="" />
-          <p>Rooms</p>
-        </div>
-
-        <div
-          onClick={() => {
-            pageStateF("quote");
-          }}
-          className={
-            pageState === "quote" ? "activemenu eachmenu " : "eachmenu "
-          }
-        >
-          <img src="svg/message-solid.svg" alt="" />
-          <p>Quotes</p>
-        </div>
-        <div
-          onClick={() => {
-            pageStateF("article");
-          }}
-          className={
-            pageState === "article" ? "activemenu eachmenu " : "eachmenu "
-          }
-        >
-          <img src="svg/blog.svg" alt="" />
-          <p>Articles</p>
-        </div>
-        <div
-          onClick={() => {
-            pageStateF("message");
-          }}
-          className={
-            pageState === "message" ? "activemenu eachmenu " : "eachmenu "
-          }
-        >
-          <img src="svg/msg.svg" alt="" />
-          <p>Messages</p>
-        </div>
-        <div
-          onClick={() => {
-            pageStateF("project");
-          }}
-          className={
-            pageState === "project" ? "activemenu eachmenu " : "eachmenu "
-          }
-        >
-          <img src="svg/people.svg" alt="" />
-          <p>Projects</p>
-        </div>
-        <div
-          onClick={() => {
-            pageStateF("Newsletter");
-          }}
-          className={
-            pageState === "Newsletter" ? "activemenu eachmenu " : "eachmenu "
-          }
-        >
-          <img src="svg/db.svg" alt="" />
-          <p>Newsletters</p>
-        </div>
-        <div
-          onClick={() => {
-            pageStateF("settings");
-          }}
-          className={
-            pageState === "settings" ? "activemenu eachmenu " : "eachmenu "
-          }
-        >
-          <img src="svg/settings.svg" alt="" />
-          <p>Settings</p>
+        <div className="flex flex-col gap-8 mt-6">
+          <button
+            onClick={() => {
+              pageStateF("default");
+            }}
+            className="btn btn-primary"
+          >
+            Home
+          </button>
+          <button
+            onClick={() => {
+              pageStateF("rooms");
+            }}
+            className="btn btn-primary"
+          >
+            Rooms
+          </button>
+          <button
+            onClick={() => {
+              pageStateF("booking");
+            }}
+            className="btn btn-primary"
+          >
+            Bookings
+          </button>
+          <button
+            onClick={() => {
+              pageStateF("faq");
+            }}
+            className="btn btn-primary"
+          >
+            FAQ
+          </button>
+          <button
+            onClick={() => {
+              pageStateF("newsletter");
+            }}
+            className="btn btn-primary"
+          >
+            Newsletter
+          </button>
+          <button
+            onClick={() => {
+              pageStateF("users");
+            }}
+            className="btn btn-primary"
+          >
+            Customers
+          </button>
+          <button
+            onClick={() => {
+              pageStateF("payment");
+            }}
+            className="btn btn-primary"
+          >
+            Payment
+          </button>
+          <button
+            onClick={() => {
+              pageStateF("settings");
+            }}
+            className="btn btn-primary"
+          >
+            Settings
+          </button>
         </div>
       </div>
       {/* 

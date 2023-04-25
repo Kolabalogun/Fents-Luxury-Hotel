@@ -8,6 +8,7 @@ import Sidebar from "./Components/Sidebar";
 import Navbar from "./Components/Navbar";
 import Rooms from "./Pages/Rooms";
 import AdminRooms from "./Pages/Rooms";
+import Booking from "./Pages/Booking";
 
 const Dashboard = () => {
   const { pageState, navigate } = useGlobalContext();
@@ -39,6 +40,8 @@ const Dashboard = () => {
           <FAQ />
         ) : pageState === "rooms" ? (
           <AdminRooms />
+        ) : pageState === "booking" ? (
+          <Booking />
         ) : (
           <Home />
         )}

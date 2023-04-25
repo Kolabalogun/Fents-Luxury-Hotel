@@ -102,6 +102,52 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  // Get BookingsCategoryFromDB
+
+  const [Bookings, BookingsF] = useState([]);
+
+  useEffect(() => {
+    setloader(true);
+    const unsub = onSnapshot(
+      collection(db, "Booking"),
+
+      (snapshot) => {
+        let list = [];
+
+        snapshot.docs.forEach((doc) => {
+          list.push({ id: doc.id, ...doc.data() });
+        });
+
+        if (!list || list.length === 0) {
+        } else {
+          BookingsF(list);
+
+          setloader(false);
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    return () => {
+      unsub();
+    };
+  }, []);
+
+  const handleDeleteBookings = async (id) => {
+    if (window.confirm("Are you sure you want to delete this Booking?")) {
+      try {
+        setloader(true);
+        await deleteDoc(doc(db, "Booking", id));
+        setloader(false);
+        toast.error("Booking deleted");
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
   const [pageState, pageStateF] = useState("default");
 
   return (
@@ -122,6 +168,9 @@ const AppProvider = ({ children }) => {
 
         Rooms,
         handleDeleteRoom,
+
+        Bookings,
+        handleDeleteBookings,
       }}
     >
       {children}
