@@ -2,6 +2,7 @@ import React from "react";
 
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { ImTwitter } from "react-icons/im";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -23,24 +24,19 @@ const Footer = () => {
             <h2 className="text-xl my-5">Navigation</h2>
 
             <div className="flex flex-col">
-              <a className="text-[14px]   font-rob my-2" href="#">
+              <Link className="text-[14px]   font-rob my-2" to="/">
                 HOME
-              </a>
-              <a className="text-[14px]   font-rob my-2" href="#">
+              </Link>
+              <Link className="text-[14px]   font-rob my-2" to="/rooms">
                 ROOMS
-              </a>
-              <a className="text-[14px]   font-rob my-2" href="#">
-                AMENITIES
-              </a>
-              <a className="text-[14px]   font-rob my-2" href="#">
-                GALLERY
-              </a>
-              <a className="text-[14px]   font-rob my-2" href="#">
+              </Link>
+
+              <Link className="text-[14px]   font-rob my-2" to="/about">
                 ABOUT US
-              </a>
-              <a className="text-[14px]   font-rob my-2" href="#">
+              </Link>
+              <Link className="text-[14px]   font-rob my-2" to="/contact">
                 CONTACT
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -63,7 +59,7 @@ const Footer = () => {
         </div>
       </section>
 
-      <section className=" flex flex-col-reverse gap-2 md:flex-row justify-between items-center py-5 mx-5 md:mx-30 lg:mx-60">
+      <section className=" flex flex-col-reverse gap-10 md:gap-1 md:flex-row justify-between items-center py-5 mx-5 md:mx-30 lg:mx-60">
         <div className="">
           <p className="font-rob text-[14px]  ">
             Developed by{" "}

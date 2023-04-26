@@ -224,7 +224,7 @@ const BookRoom = () => {
                             onChange={handleCheckInChange}
                             placeholder="Check In Date"
                             required
-                            className="border py-[18px] border-black  px-[25px] text-[14px] "
+                            className="input input-bordered w-full max-w-xs"
                           />
                         </div>
 
@@ -237,7 +237,7 @@ const BookRoom = () => {
                             value={checkOut}
                             onChange={handleCheckOutChange}
                             required
-                            className="border py-[18px] border-black  px-[25px] text-[14px] "
+                            className="input input-bordered w-full max-w-xs"
                           />
                         </div>
                       </div>

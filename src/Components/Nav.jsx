@@ -170,7 +170,7 @@ const Navbar = ({ galleryBg }) => {
                 smooth={true}
                 offset={-80}
                 duration={500}
-                style={tcolo}
+                // style={tcolo}
                 className={`
                ${windowHeight > 0 ? "linkedcss" : " linkcss"} 
               text-[15px]  font-cumm uppercase cursor-pointer bg-black px-5 font-semibold  border-b-zinc-300 py-2  m-4 text-white  rounded-lg `}

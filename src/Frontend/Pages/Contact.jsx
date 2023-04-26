@@ -73,7 +73,7 @@ const Contact = () => {
       />
 
       <section className="my-20">
-        <div className="flex items-center justify-center md:px-[400px]  px-[20px] text-[14px]">
+        <div className="flex items-center justify-center  px-[20px] text-[14px]">
           <p>
             Feel free to ask / inquire about anything. Hoping to be a resource
             and be of help in your journey in any way possible.
@@ -83,7 +83,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="flex  flex-col  my-[30px] md:px-[200px] px-[20px] text-[14px]">
+        <div className="flex  flex-col  my-[30px] lg:md:px-[200px] md:px-[150px] sm:px-[50px] px-[20px] text-[14px]">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-[10px]">
             <input
               type="text"
