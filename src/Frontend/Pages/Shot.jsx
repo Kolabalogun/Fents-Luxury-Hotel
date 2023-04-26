@@ -44,7 +44,6 @@ const Shot = () => {
             data-te-carousel-init
             data-te-carousel-slide
           >
-            {/* <!--Carousel indicators--> */}
             <div
               className="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
               data-te-carousel-indicators
@@ -74,14 +73,12 @@ const Shot = () => {
               ></button>
             </div>
 
-            {/* <!--Carousel items--> */}
             <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
-              {/* <!--First item--> */}
               <div
                 className="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                 data-te-carousel-active
                 data-te-carousel-item
-                // className="backface-visibility: hidden"
+                // style="backface-visibility: hidden"
               >
                 <img
                   src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg"
@@ -95,11 +92,11 @@ const Shot = () => {
                   </p>
                 </div>
               </div>
-              {/* <!--Second item--> */}
+
               <div
                 className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                 data-te-carousel-item
-                // className="backface-visibility: hidden"
+                // style="backface-visibility: hidden"
               >
                 <img
                   src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(22).jpg"
@@ -114,11 +111,11 @@ const Shot = () => {
                   </p>
                 </div>
               </div>
-              {/* <!--Third item--> */}
+
               <div
                 className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                 data-te-carousel-item
-                // className="backface-visibility: hidden"
+                // style="backface-visibility: hidden"
               >
                 <img
                   src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(23).jpg"
@@ -134,7 +131,6 @@ const Shot = () => {
               </div>
             </div>
 
-            {/* <!--Carousel controls - prev item--> */}
             <button
               className="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
               type="button"
@@ -161,7 +157,7 @@ const Shot = () => {
                 Previous
               </span>
             </button>
-            {/* <!--Carousel controls - next item--> */}
+
             <button
               className="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
               type="button"
@@ -192,7 +188,7 @@ const Shot = () => {
         </div>
       </section>
 
-      <section className="Featured container mx-0 md:mx-16">
+      <section className="Featured container mx-0 md:mx-[auto]">
         <div className="featured ">
           <h2 className="flex justify-center text-center font-extrabold text-2xl mt-24 mb-8 md:sectionHeader">
             Featured Rooms
@@ -201,8 +197,8 @@ const Shot = () => {
         </div>
 
         <div className="block md:flex justify-center">
-          <div className="featured-img ml-[15%] md:ml-0 my-5 relative">
-            <div className="w-[40%] mt-[20%] md:mt-0 md:w-[50%]  h-[350px]  object-cover absolute md:mx-[10%] shadow-md">
+          <div className="featured-img md:flex justify-end ml-[15%] md:ml-0 my-5 relative">
+            <div className="hidden md:flex  absolute w-[40%] md:w-[60%] h-[650px] object-cover shadow-md">
               <img
                 className="w-full h-full"
                 src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(22).jpg"
@@ -210,7 +206,7 @@ const Shot = () => {
               />
             </div>
 
-            <div className="w-[60%] md:w-[70%] h-[600px] object-cover mx-[auto] mt-[10%] md:mx-[20%] shadow-md">
+            <div className="w-[90%] md:w-[70%] h-[800px] object-cover mt-[10%] hadow-md md:mx-[15%]">
               <img
                 className="w-full h-full"
                 src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg"
@@ -219,7 +215,7 @@ const Shot = () => {
             </div>
           </div>
 
-          <div className="K-bedroom items-center justify-start my-[auto] w-[40%] mr-44">
+          <div className="K-bedroom items-center justify-start my-[auto] w-[40%] mx-[15%] md:mx-[10%]">
             <h2 className="title">King Bedroom</h2>
             <span className="paragraph">
               A hotel is an establishment that provides paid lodging on a
@@ -237,8 +233,10 @@ const Shot = () => {
           </div>
         </div>
 
+        <hr className="border-b-1 w-[7%] border-black mx-[auto] my-[10%]" />
+
         <div className="block md:flex justify-center">
-          <div className="Q-bedroom items-center grid justify-cneter my-[auto] w-[40%] ml-[auto] md:ml-44">
+          <div className="Q-bedroom justify-center text-start my-[auto] w-[40%] ml-[auto] md:mx-[10%]">
             <h2 className="title">Queen's Bedroom</h2>
             <span className="paragraph">
               A hotel is an establishment that provides paid lodging on a
@@ -255,8 +253,8 @@ const Shot = () => {
             </div>
           </div>
 
-          <div className="featured-img ml-[15%] md:ml-0 my-5 relative ">
-            <div className="w-[40%] md:w-[50%]  h-[300px] ml-[35%] md:ml-[55%] mt-[35%] absolute shadow-md">
+          <div className="items-center flex featured-img ml-[15%] md:ml-0 my-5 relative ">
+            <div className="hidden md:flex absolute w-[40%] md:w-[60%]  h-[450px] ml-[auto] md:ml-[40%] mt-[35%] shadow-md">
               <img
                 className="w-full h-full"
                 src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(22).jpg"
@@ -264,7 +262,7 @@ const Shot = () => {
               />
             </div>
 
-            <div className="w-[55%] md:w-[70%] h-[800px] object-cover ml-0 md:ml-[10%] mt-[10%] shadow-md">
+            <div className="w-[90%] md:w-[70%] h-[800px] object-cover mt-[10%] md:mx-[15%] shadow-md">
               <img
                 className="w-full h-full"
                 src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg"
@@ -280,8 +278,8 @@ const Shot = () => {
           </h2>
           <hr className="border-b-1 w-[7%] border-black mx-[auto] mb-16 mt-2" />
 
-          <div className="A-cards block md:grid grid-cols-3">
-            <div className="my-[10%] md:my-0 w-[80%] mx-[auto] text-center items-center border">
+          <div className="A-cards block md:grid grid-cols-3 justify-center">
+            <div className="my-[10%] md:my-0 w-[90%] mx-[10%] text-center items-center border">
               <div className="w-[80%] mx-[auto]">
                 <div className="w-[30%] ml-[35%] my-10">
                   <img
@@ -303,7 +301,7 @@ const Shot = () => {
               </div>
             </div>
 
-            <div className="my-[10%] md:my-0 w-[80%] mx-[auto] text-center items-center border">
+            <div className="my-[10%] md:my-0 w-[90%] mx-[10%] text-center items-center border">
               <div className="w-[80%] mx-[auto]">
                 <div className="w-[30%] ml-[35%] my-10">
                   <img
@@ -325,7 +323,7 @@ const Shot = () => {
               </div>
             </div>
 
-            <div className="my-[10%] md:my-0 w-[80%] mx-[auto] text-center items-center border">
+            <div className="my-[10%] md:my-0 w-[90%] mx-[10%] text-center items-center border">
               <div className="w-[80%] mx-[auto]">
                 <div className="w-[30%] ml-[35%] my-10">
                   <img
@@ -349,7 +347,7 @@ const Shot = () => {
               </div>
             </div>
 
-            <div className="my-[10%] md:my-0 w-[80%] mx-[auto] text-center items-center border md:mt-[20%]">
+            <div className="my-[10%] md:my-0 w-[90%] mx-[10%] text-center items-center border md:mt-[10%]">
               <div className="w-[80%] mx-[auto]">
                 <div className="w-[30%] ml-[35%] my-10">
                   <img
@@ -371,7 +369,7 @@ const Shot = () => {
               </div>
             </div>
 
-            <div className="my-[10%] md:my-0 w-[80%] mx-[auto] text-center items-center border md:mt-[20%]">
+            <div className="my-[10%] md:my-0 w-[90%] mx-[10%] text-center items-center border md:mt-[10%]">
               <div className="w-[80%] mx-[auto]">
                 <div className="w-[30%] ml-[35%] my-10">
                   <img
@@ -393,7 +391,7 @@ const Shot = () => {
               </div>
             </div>
 
-            <div className="my-[10%] md:my-0 w-[80%] mx-[auto] text-center items-center border md:mt-[20%]">
+            <div className="my-[10%] md:my-0 w-[90%] mx-[10%] text-center items-center border md:mt-[10%]">
               <div className="w-[80%] mx-[auto]">
                 <div className="w-[30%] ml-[35%] my-10">
                   <img
@@ -421,7 +419,7 @@ const Shot = () => {
       <section className="Contact h-60 bg-gray-300 flex justify-center items-center">
         <div className="items-center">
           <span>
-            <p className="text-2xl w-[60%] md:w-[80%] text-center ml-[20%] md:ml-[10%]">
+            <p className="text-2xl w-[60%] md:w-full text-center ml-[20%] md:ml-[10%]">
               {" "}
               If you have any special requests, please feel free to call us.
               <a href="#">+12.345.678.9012</a>
@@ -430,9 +428,9 @@ const Shot = () => {
         </div>
       </section>
 
-      <section className="Navigation container mt-8 mx-[5%] md:mx-16">
-        <div className="grid grid-cols-2 md:grid-cols-5">
-          <div className="w-[80%] md:col-span-2 aboutUs">
+      <section className="md:w-[60%] md:mx-[20%] Navigation container mt-8 mx-[5%] ">
+        <div className="block md:grid grid-cols-5">
+          <div className="w-[60%] md:col-span-2 aboutUs">
             <h2 className="subTitle my-5">About Us</h2>
             <span>
               <p className="text-lg tracking font-light my-5">
@@ -441,7 +439,7 @@ const Shot = () => {
                 modest-quality.
               </p>
             </span>
-            <h3 className="text-sm font-extrabold tracking-wide my-10">
+            <h3 className="text-xs font-extrabold tracking-wide my-10">
               READ MORE
             </h3>
           </div>
@@ -491,7 +489,7 @@ const Shot = () => {
           </div>
 
           <div className="col-span-2">
-            <div className="add$phone grid grid-cols-2 text-left">
+            <div className="add$phone block md:grid grid-cols-2 text-left">
               <div>
                 <h2 className="subTitle my-5">Address</h2>
                 <span>

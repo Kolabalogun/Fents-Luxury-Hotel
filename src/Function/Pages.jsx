@@ -38,6 +38,7 @@ const Pages = () => {
         <>
           <Route path="/admin" element={<Dashboard />} />
           <Route path="/admin/updateroom/:id" element={<Dashboard />} />
+          <Route path="/admin/editBooking/:id" element={<Dashboard />} />
         </>
       )}
     </Routes>

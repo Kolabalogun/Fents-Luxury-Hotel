@@ -32,7 +32,7 @@ const Rooms = () => {
           </p>
         </div>
 
-        <div className="">
+        <div>
           {Rooms.length > 0 ? (
             Rooms.map((room, index) => {
               return (

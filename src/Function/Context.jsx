@@ -148,6 +148,85 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  // Get UsersCategoryFromDB
+
+  const [RegisteredUsers, RegisteredUsersF] = useState([]);
+
+  useEffect(() => {
+    setloader(true);
+    const unsub = onSnapshot(
+      collection(db, "RegisteredUsers"),
+
+      (snapshot) => {
+        let list = [];
+
+        snapshot.docs.forEach((doc) => {
+          list.push({ id: doc.id, ...doc.data() });
+        });
+
+        if (!list || list.length === 0) {
+        } else {
+          RegisteredUsersF(list);
+
+          setloader(false);
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    return () => {
+      unsub();
+    };
+  }, []);
+
+  const handleDeleteMessage = async (id) => {
+    if (window.confirm("Are you sure you want to delete this Message?")) {
+      try {
+        setloader(true);
+        await deleteDoc(doc(db, "Messages", id));
+        setloader(false);
+        toast.error("Message deleted");
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+  // Get UsersCategoryFromDB
+
+  const [Messages, MessagesF] = useState([]);
+
+  useEffect(() => {
+    setloader(true);
+    const unsub = onSnapshot(
+      collection(db, "Messages"),
+
+      (snapshot) => {
+        let list = [];
+
+        snapshot.docs.forEach((doc) => {
+          list.push({ id: doc.id, ...doc.data() });
+        });
+
+        if (!list || list.length === 0) {
+        } else {
+          MessagesF(list);
+
+          setloader(false);
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    return () => {
+      unsub();
+    };
+  }, []);
+
   const [pageState, pageStateF] = useState("default");
 
   return (
@@ -171,6 +250,10 @@ const AppProvider = ({ children }) => {
 
         Bookings,
         handleDeleteBookings,
+
+        RegisteredUsers,
+        Messages,
+        handleDeleteMessage,
       }}
     >
       {children}

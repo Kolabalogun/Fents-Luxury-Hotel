@@ -41,14 +41,7 @@ const Sidebar = () => {
           >
             FAQ
           </button>
-          <button
-            onClick={() => {
-              pageStateF("newsletter");
-            }}
-            className="btn btn-primary"
-          >
-            Newsletter
-          </button>
+
           <button
             onClick={() => {
               pageStateF("users");

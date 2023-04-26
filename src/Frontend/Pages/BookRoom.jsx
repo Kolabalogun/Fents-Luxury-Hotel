@@ -26,6 +26,7 @@ const BookRoom = () => {
     roomType: id,
     bookStatus: "Pending",
     payment: "due",
+    Address: "",
   };
 
   useEffect(() => {
@@ -71,6 +72,7 @@ const BookRoom = () => {
 
     numberOfGuest,
     description,
+    Address,
   } = form;
 
   useEffect(() => {
