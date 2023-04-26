@@ -13,8 +13,15 @@ import { useGlobalContext } from "../../Function/Context";
 import { Link, useParams } from "react-router-dom";
 
 const AddBooking = ({ setstate, pageStateF }) => {
-  const { notification, notificationF, user, setloader, Rooms } =
-    useGlobalContext();
+  const {
+    notification,
+    notificationF,
+    user,
+    setloader,
+    Rooms,
+    handleDeleteBookings,
+    navigate,
+  } = useGlobalContext();
 
   const bookingStatus = ["Pending", "Checked In", "Checked Out"];
   const paymentStatus = ["Due", "Successful"];
@@ -166,16 +173,31 @@ const AddBooking = ({ setstate, pageStateF }) => {
       <div className="flex mb-5 justify-between items-center">
         <h1 className="text-2xl   pb-2 ">Add Booking</h1>
 
-        <Link to={"/admin"}>
-          <button
-            onClick={() => {
-              setstate(true);
-            }}
-            className="btn btn-primary"
-          >
-            See Booking Lists
-          </button>
-        </Link>
+        <div className="flex gap-5">
+          {id && (
+            <button
+              onClick={() => {
+                handleDeleteBookings(id);
+                navigate("/admin");
+                setstate(true);
+              }}
+              className="btn btn-secondary"
+            >
+              Delete Booking
+            </button>
+          )}
+
+          <Link to={"/admin"}>
+            <button
+              onClick={() => {
+                setstate(true);
+              }}
+              className="btn btn-primary"
+            >
+              See Booking Lists
+            </button>
+          </Link>
+        </div>
       </div>
 
       <div className="">
