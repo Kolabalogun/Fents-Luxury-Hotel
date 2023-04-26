@@ -63,7 +63,7 @@ const Footer = () => {
         </div>
       </section>
 
-      <section className=" flex justify-between items-center py-5 mx-5 md:mx-30 lg:mx-60">
+      <section className=" flex flex-col-reverse gap-2 md:flex-row justify-between items-center py-5 mx-5 md:mx-30 lg:mx-60">
         <div className="">
           <p className="font-rob text-[14px]  ">
             Developed by{" "}
