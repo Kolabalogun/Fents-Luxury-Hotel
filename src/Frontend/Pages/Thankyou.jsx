@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AnimatedPage from "../../Utils/AnimatedPage";
 import Header from "../../Components/Header";
 import FAQMenu from "../Components/FAQMenu";
@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 import Footer from "../../Components/Footer";
 
 const Thankyou = () => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   return (
     <AnimatedPage>
       <Header title={"Thank you!"} caption="" />

@@ -152,6 +152,16 @@ const BookRoom = () => {
     }
   }, [Rooms, id]);
 
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   if (!room) {
     return <Loader />;
   }
@@ -224,7 +234,13 @@ const BookRoom = () => {
                             onChange={handleCheckInChange}
                             placeholder="Check In Date"
                             required
-                            className="input input-bordered w-full max-w-xs"
+                            className={`
+                              ${
+                                screenWidth < 500
+                                  ? "input input-bordered w-full max-w-xs"
+                                  : "border py-[18px] border-black  px-[25px] text-[14px]   "
+                              }
+                              `}
                           />
                         </div>
 
@@ -237,7 +253,13 @@ const BookRoom = () => {
                             value={checkOut}
                             onChange={handleCheckOutChange}
                             required
-                            className="input input-bordered w-full max-w-xs"
+                            className={`
+                              ${
+                                screenWidth < 500
+                                  ? "input input-bordered w-full max-w-xs"
+                                  : "border py-[18px] border-black  px-[25px] text-[14px]   "
+                              }
+                              `}
                           />
                         </div>
                       </div>

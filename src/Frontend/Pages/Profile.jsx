@@ -88,12 +88,12 @@ const Profile = () => {
                         </h1>
                       </div>
 
-                      {/* <div
-                        className="mt-4 text-[12px] font-cumm"
+                      <div
+                        className="my-4 text-[14px] font-cumm"
                         dangerouslySetInnerHTML={{
                           __html: book.description,
                         }}
-                      /> */}
+                      />
 
                       <div className="flex justify-between items-center">
                         <button
