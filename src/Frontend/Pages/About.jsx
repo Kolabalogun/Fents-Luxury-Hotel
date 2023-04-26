@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Header from "../../Components/Header";
 import AnimatedPage from "../../Utils/AnimatedPage";
 import FAQMenu from "../Components/FAQMenu";
+import Footer from "../../Components/Footer";
 
 const About = () => {
   useEffect(() => {
@@ -94,6 +95,7 @@ const About = () => {
       </section>
 
       <FAQMenu />
+      <Footer />
     </AnimatedPage>
   );
 };

@@ -59,14 +59,30 @@ const Checkout = ({ form, room, checkIn, checkOut, numDays, handleSubmit }) => {
             </h1>
           </div>
 
+          <div className="mt-4 h-[2px] w-full bg-[#aaa]"></div>
+          <div className="flex flex-col my-5">
+            <p className="font-bold text-sm">Direct Bank Transfer</p>
+            <p className="text-[14px]">
+              You can make payment by making transfer to this Account Details{" "}
+              <br /> Account Name: Fents Luxury Hotel <br />
+              Account Number: 1234567890 <br />
+              After making payment please click 'Place Booking' then procees to
+              our Hotel with your payment details. <br />
+              Thank you!
+            </p>
+            <p className="font-bold text-sm mt-3">
+              Alternatively you can place your booking and make payment at the
+              Hotel
+            </p>
+          </div>
+
           <div className="flex items-center justify-center gap-6 mt-6">
             <button
               onClick={handleSubmit}
               className="btn btn-active btn-primary"
             >
-              Pay at Hotel
+              Place Booking
             </button>
-            <button className="btn btn-accent">Pay Now</button>
           </div>
         </div>
       </>

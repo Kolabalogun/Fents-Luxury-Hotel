@@ -5,6 +5,7 @@ import Header from "../../Components/Header";
 import RoomCard from "../Components/Rooom/RoomCard";
 import FAQMenu from "../Components/FAQMenu";
 import Loader from "../../Components/Loader";
+import Footer from "../../Components/Footer";
 
 const Rooms = () => {
   const { Rooms, loader } = useGlobalContext();
@@ -50,6 +51,7 @@ const Rooms = () => {
       </section>
 
       <FAQMenu />
+      <Footer />
     </AnimatedPage>
   );
 };

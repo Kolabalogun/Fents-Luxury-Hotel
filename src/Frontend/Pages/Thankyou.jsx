@@ -3,6 +3,7 @@ import AnimatedPage from "../../Utils/AnimatedPage";
 import Header from "../../Components/Header";
 import FAQMenu from "../Components/FAQMenu";
 import { Link } from "react-router-dom";
+import Footer from "../../Components/Footer";
 
 const Thankyou = () => {
   return (
@@ -27,22 +28,22 @@ const Thankyou = () => {
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <h1 className="text-4xl font-bold font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+              <h1 className="text-4xl font-bold  text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
                 Thank You !
               </h1>
               <p className="mb-4 text-center">
                 Thank you for your booking with us. Proceed to our Hotel with
                 your Booking Details
               </p>
-              <div className="flex  flex-col md:flex-row items-center justify-center gap-6">
+              <div className="flex  flex-col md:flex-row  gap-6">
                 <Link className="w-full" to="/">
-                  <button className="btn btn-active btn-primary font-cumm text-xl w-full">
+                  <button className="btn btn-active btn-primary font-cumm text-lg w-full">
                     Home
                   </button>
                 </Link>
-                <Link to="/userprofile">
-                  <button className="btn btn-accent font-cumm text-xl ">
-                    Check Bookings
+                <Link className="w-full" to="/userprofile">
+                  <button className="btn btn-accent font-cumm text-lg ">
+                    Bookings
                   </button>
                 </Link>
               </div>
@@ -52,6 +53,7 @@ const Thankyou = () => {
       </section>
 
       <FAQMenu />
+      <Footer />
     </AnimatedPage>
   );
 };

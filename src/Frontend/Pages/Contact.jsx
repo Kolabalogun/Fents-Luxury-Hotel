@@ -5,6 +5,7 @@ import { useGlobalContext } from "../../Function/Context";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../../Utils/Firebase";
 import { toast } from "react-toastify";
+import Footer from "../../Components/Footer";
 
 const initialState = {
   username: "",
@@ -144,6 +145,7 @@ const Contact = () => {
           </button>
         </div>
       </section>
+      <Footer />
     </AnimatedPage>
   );
 };

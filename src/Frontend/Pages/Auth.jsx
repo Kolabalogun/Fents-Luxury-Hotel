@@ -11,6 +11,7 @@ import { addDoc, collection } from "firebase/firestore";
 import Navbar from "../../Components/Nav";
 import AnimatedPage from "../../Utils/AnimatedPage";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../Components/Footer";
 
 const initialState = {
   username: "",
@@ -180,6 +181,7 @@ const Auth = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </AnimatedPage>
   );
 };

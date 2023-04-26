@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import Loader from "../../Components/Loader";
 import Checkout from "./Checkout";
+import Footer from "../../Components/Footer";
 
 const BookRoom = () => {
   const { setloader, navigate, notification, notificationF, setuser, user } =
@@ -307,6 +308,7 @@ const BookRoom = () => {
       )}
 
       <FAQMenu />
+      <Footer />
     </AnimatedPage>
   );
 };

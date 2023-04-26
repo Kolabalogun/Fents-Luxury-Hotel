@@ -4,6 +4,7 @@ import AnimatedPage from "../../Utils/AnimatedPage";
 import FAQMenu from "../Components/FAQMenu";
 import { useGlobalContext } from "../../Function/Context";
 import Loader from "../../Components/Loader";
+import Footer from "../../Components/Footer";
 
 const Profile = () => {
   const { user, Bookings, handleDeleteBookings } = useGlobalContext();
@@ -62,15 +63,15 @@ const Profile = () => {
                         className="flex
                    justify-between items-center"
                       >
-                        <div className="  font-semibold text-[18px] mb-[5px] font-cumm uppercase ">
-                          <span>
-                            <span className="hidden sm:block">Check</span> In{" "}
+                        <div className=" flex  font-semibold text-[18px] mb-[5px] font-cumm uppercase ">
+                          <span className="flex">
+                            <span className="hidden sm:flex">Check</span> In{" "}
                             {book.checkIn}
                           </span>
                           &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                          <span>
-                            <span className="text-medium-gray ">
-                              <span className="hidden sm:block">Check</span> Out{" "}
+                          <span className="flex">
+                            <span className="text-medium-gray flex ">
+                              <span className="hidden sm:flex">Check</span> Out{" "}
                               {book.checkOut}
                             </span>
                           </span>
@@ -113,7 +114,7 @@ const Profile = () => {
                           onClick={() => handleDeleteBookings(book.id)}
                           className="btn btn-secondary  font-bold"
                         >
-                          Delete
+                          Cancel
                         </button>
                       </div>
                     </div>
@@ -128,6 +129,7 @@ const Profile = () => {
       </section>
 
       <FAQMenu />
+      <Footer />
     </AnimatedPage>
   );
 };

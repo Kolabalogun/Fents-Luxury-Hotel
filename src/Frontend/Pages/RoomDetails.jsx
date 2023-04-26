@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import AnimatedPage from "../../Utils/AnimatedPage";
 import Header from "../../Components/Header";
 import FAQMenu from "../Components/FAQMenu";
+import Footer from "../../Components/Footer";
 
 const RoomDetails = () => {
   useEffect(() => {
@@ -67,6 +68,7 @@ const RoomDetails = () => {
       </section>
 
       <FAQMenu />
+      <Footer />
     </AnimatedPage>
   );
 };
