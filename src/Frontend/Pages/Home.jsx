@@ -12,7 +12,7 @@ import FAQMenu from "../Components/FAQMenu";
 import { AmenitiesData } from "../Components/Amenites";
 
 const Home = () => {
-  const { loader, Rooms } = useGlobalContext();
+  const { loader, Rooms, pageInfos } = useGlobalContext();
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -26,8 +26,8 @@ const Home = () => {
     <AnimatedPage>
       <>
         <Header
-          title={"Fents Luxury Hotel"}
-          caption="See what a diffrence makes"
+          title={pageInfos.homepageCaptionTitle}
+          caption={pageInfos.homepageCaption}
         />
       </>
 

@@ -26,7 +26,7 @@ const BookRoom = () => {
     description: "",
     roomType: id,
     bookStatus: "Pending",
-    payment: "due",
+    payment: "Due",
     Address: "",
   };
 
@@ -76,6 +76,12 @@ const BookRoom = () => {
     Address,
   } = form;
 
+  const [totalPrice, totalPriceF] = useState(0);
+
+  useEffect(() => {
+    totalPriceF(Number(room.PricePerNight) * Number(numDays));
+  }, [numDays]);
+
   useEffect(() => {
     window.scroll(0, 0);
     const dateId = new Date().getTime();
@@ -97,6 +103,7 @@ const BookRoom = () => {
           userId: user.uid,
           daysOfReservation: numDays,
           checkIn,
+          totalPrice,
           checkOut,
           timestamp: serverTimestamp(),
         });

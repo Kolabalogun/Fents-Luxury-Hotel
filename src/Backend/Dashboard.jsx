@@ -5,11 +5,11 @@ import { useGlobalContext } from "../Function/Context";
 import { auth } from "../Utils/Firebase";
 import FAQ from "./Pages/FAQ";
 import Sidebar from "./Components/Sidebar";
-import Navbar from "./Components/Navbar";
-import Rooms from "./Pages/Rooms";
+
 import AdminRooms from "./Pages/Rooms";
 import Booking from "./Pages/Booking";
 import Customers from "./Pages/Customers";
+import Payment from "./Pages/Payment";
 
 const Dashboard = () => {
   const { pageState, navigate } = useGlobalContext();
@@ -45,6 +45,8 @@ const Dashboard = () => {
           <Booking />
         ) : pageState === "users" ? (
           <Customers />
+        ) : pageState === "payment" ? (
+          <Payment />
         ) : (
           <Home />
         )}

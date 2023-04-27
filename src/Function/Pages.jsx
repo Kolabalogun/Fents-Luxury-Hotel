@@ -15,14 +15,21 @@ import Shot from "../Frontend/Pages/Shot";
 import Profile from "../Frontend/Pages/Profile";
 import Thankyou from "../Frontend/Pages/Thankyou";
 import DateInput from "../Frontend/Pages/Demo";
+import AdminAuth from "../Backend/Pages/Auth";
 
 const Pages = () => {
-  const { user } = useGlobalContext();
+  const { user, signInTypeAdmin } = useGlobalContext();
+
+  console.log(signInTypeAdmin);
 
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/auth" element={<Auth />} />
+      <Route path="*" element={<Home />} />
+      {!user && <Route path="/auth" element={<Auth />} />}
+
+      {!signInTypeAdmin && <Route path="/adminauth" element={<AdminAuth />} />}
+
       <Route path="/about" element={<About />} />
       <Route path="/rooms" element={<Rooms />} />
       <Route path="/room" element={<RoomDetails />} />
@@ -34,7 +41,7 @@ const Pages = () => {
       <Route path="/shot" element={<Shot />} />
       <Route path="/demo" element={<DateInput />} />
 
-      {user && (
+      {user && signInTypeAdmin && (
         <>
           <Route path="/admin" element={<Dashboard />} />
           <Route path="/admin/updateroom/:id" element={<Dashboard />} />

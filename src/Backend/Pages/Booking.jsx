@@ -29,8 +29,6 @@ const Booking = () => {
     id && setstate(false);
   }, [id]);
 
-  console.log(id);
-
   if (loader) {
     return (
       <div className="bg-[#f5f6f7] w-full  min-h-[100vh] px-4 py-1 pb-4 h-full dashboard">

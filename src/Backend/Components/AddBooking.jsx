@@ -28,6 +28,7 @@ const AddBooking = ({ setstate, pageStateF }) => {
   const paymentTypes = ["Cash", "Transfer"];
 
   const [RoomsList, RoomsListF] = useState([]);
+  const [PricePerNight, PricePerNightF] = useState([]);
 
   useEffect(() => {
     setloader(true);
@@ -45,9 +46,10 @@ const AddBooking = ({ setstate, pageStateF }) => {
     description: "",
     roomType: "",
     bookStatus: "Pending",
-    payment: "due",
+    payment: "Due",
     userAddress: "",
     paymentType: "",
+    totalPrice: "",
   };
 
   const [form, setform] = useState(initialState);
@@ -87,6 +89,7 @@ const AddBooking = ({ setstate, pageStateF }) => {
     payment,
     userAddress,
     paymentType,
+    totalPrice,
   } = form;
 
   useEffect(() => {
@@ -128,7 +131,7 @@ const AddBooking = ({ setstate, pageStateF }) => {
 
   const { id } = useParams();
 
-  console.log(form);
+  //   console.log(form);
 
   useEffect(() => {
     id && getBookingDetail();
@@ -167,6 +170,20 @@ const AddBooking = ({ setstate, pageStateF }) => {
       return toast.error("All fields must be filled");
     }
   };
+
+  useEffect(() => {
+    PricePerNightF(
+      Rooms.filter((room) => {
+        if (room.RoomName === roomType) {
+          return room.PricePerNight;
+        }
+      })
+    );
+    setform({
+      ...form,
+      totalPrice: Number(PricePerNight[0]?.PricePerNight) * Number(numDays),
+    });
+  }, [numDays, roomType]);
 
   return (
     <div className="bg-white my-10 flex flex-col  p-4">
@@ -339,7 +356,7 @@ const AddBooking = ({ setstate, pageStateF }) => {
               />
             </div>
           </div>
-          <div className="flex justify-between w-full   my-[10px]">
+          <div className="flex justify-between w-full gap-3  my-[10px]">
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text text-black">Payment</span>
@@ -408,6 +425,21 @@ const AddBooking = ({ setstate, pageStateF }) => {
                 name="userAddress"
                 value={userAddress}
                 onChange={handleChange}
+                placeholder="Address"
+                required
+                className="input bg-white input-bordered w-full max-w-xs"
+              />
+            </div>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text text-black">Total Price</span>
+              </label>
+              <input
+                type="text"
+                name="totalPrice"
+                value={totalPrice}
+                // onChange={handleChange}
+                readOnly
                 placeholder="Address"
                 required
                 className="input bg-white input-bordered w-full max-w-xs"

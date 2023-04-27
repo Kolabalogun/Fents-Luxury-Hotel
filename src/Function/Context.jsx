@@ -30,12 +30,14 @@ const AppProvider = ({ children }) => {
     });
   }, []);
 
+  const [signInTypeAdmin, signInTypeAdminF] = useState(null);
+
   //   logging out user
   const handleLogout = () => {
     signOut(auth).then(() => {
       setuser(null);
       navigate("/");
-      localStorage.setItem("isLoggedIn", false);
+      signInTypeAdminF(null);
       return toast.error("You've successfully Log Out");
     });
   };
@@ -49,7 +51,7 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       notificationF("");
-    }, 3000);
+    }, 4000);
 
     return () => {
       clearTimeout(timeout);
@@ -227,6 +229,35 @@ const AppProvider = ({ children }) => {
     };
   }, []);
 
+  const [pageInfos, pageInfosF] = useState({
+    homepageCaptionTitle: "",
+    homepageCaption: "",
+    aboutCaptionTitle: "",
+    aboutCaption: "",
+    aboutHistory: "",
+    aboutHistoryImg: "",
+    aboutMoreInfo: "",
+    aboutMoreInfoImg: "",
+    roomsCaptionTitle: "",
+    roomsCaption: "",
+    roomsHeader: "",
+    roomsHeaderCaption: "",
+  });
+
+  useEffect(() => {
+    getHomepageDetails();
+  }, []);
+
+  const getHomepageDetails = async () => {
+    setloader(true);
+
+    const docRef = doc(db, "Homepage", "r6rmpJdjIO6MRhv8yWOU");
+    const blogDetail = await getDoc(docRef);
+    pageInfosF(blogDetail.data());
+
+    setloader(false);
+  };
+
   const [pageState, pageStateF] = useState("default");
 
   return (
@@ -254,6 +285,10 @@ const AppProvider = ({ children }) => {
         RegisteredUsers,
         Messages,
         handleDeleteMessage,
+
+        pageInfos,
+        signInTypeAdmin,
+        signInTypeAdminF,
       }}
     >
       {children}

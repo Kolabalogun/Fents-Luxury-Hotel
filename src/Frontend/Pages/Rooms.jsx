@@ -8,7 +8,7 @@ import Loader from "../../Components/Loader";
 import Footer from "../../Components/Footer";
 
 const Rooms = () => {
-  const { Rooms, loader } = useGlobalContext();
+  const { Rooms, loader, pageInfos } = useGlobalContext();
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -20,17 +20,16 @@ const Rooms = () => {
 
   return (
     <AnimatedPage>
-      <Header title={"Our Rooms"} caption="" />
+      <Header
+        title={pageInfos.roomsCaptionTitle}
+        caption={pageInfos.roomsCaption}
+      />
 
       <section className="my-20">
         <div className="flex justify-center items-center mb-16 flex-col">
-          <h1 className="text-5xl font-light mb-10">Enjoy Your Stay</h1>
+          <h1 className="text-5xl font-light mb-10">{pageInfos.roomsHeader}</h1>
 
-          <p className="text-center px-5">
-            A hotel is an establishment that provides paid lodging on a
-            short-term basis. Facilities provided may range from a
-            modest-quality mattress
-          </p>
+          <p className="text-center px-5">{pageInfos.roomsHeaderCaption}</p>
         </div>
 
         <div>

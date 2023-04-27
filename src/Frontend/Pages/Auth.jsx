@@ -42,17 +42,22 @@ const Auth = () => {
     if (!registrationType) {
       if (email && password) {
         setloader(true);
-        const { user } = await signInWithEmailAndPassword(
-          auth,
-          email.trim(),
-          password
-        );
 
-        setuser(user);
+        signInWithEmailAndPassword(auth, email.trim(), password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            setuser(user);
 
-        navigate("/");
+            navigate("/");
 
-        toast.success("Login Successful");
+            toast.success("Login Successful");
+          })
+
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            notificationF(errorMessage);
+          });
 
         setloader(false);
       } else {
@@ -68,6 +73,7 @@ const Auth = () => {
         );
         await updateProfile(user, { displayName: `${username.trim()}` });
         setuser(user);
+
         try {
           await addDoc(collection(db, "RegisteredUsers"), {
             Name: username.trim(),
@@ -148,13 +154,13 @@ const Auth = () => {
                 className="w-full flex-1 flex border bg-white py-[10px]  px-[25px] text-[14px] outline-none "
               />
             )}
-          </div>
 
-          {notification && (
-            <p className="text-red-700 py-4 text-[14px] bg-transparent z-30">
-              {notification}
-            </p>
-          )}
+            {notification && (
+              <p className="text-red-700 py-1 text-[14px] bg-transparent z-30">
+                {notification}
+              </p>
+            )}
+          </div>
 
           <div className="flex justify-between w-full my-2">
             <button
