@@ -26,7 +26,7 @@ const Pages = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="*" element={<Home />} />
-      {!user && <Route path="/auth" element={<Auth />} />}
+      <Route path="/auth" element={<Auth />} />
 
       {!signInTypeAdmin && <Route path="/adminauth" element={<AdminAuth />} />}
 
