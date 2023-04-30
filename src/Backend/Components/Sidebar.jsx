@@ -58,14 +58,14 @@ const Sidebar = () => {
           >
             Payment
           </button>
-          <button
+          {/* <button
             onClick={() => {
               pageStateF("settings");
             }}
             className="btn btn-primary"
           >
             Settings
-          </button>
+          </button> */}
         </div>
       </div>
       {/* 
