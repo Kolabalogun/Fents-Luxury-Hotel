@@ -20,8 +20,6 @@ import AdminAuth from "../Backend/Pages/Auth";
 const Pages = () => {
   const { user, signInTypeAdmin } = useGlobalContext();
 
-  console.log(signInTypeAdmin);
-
   return (
     <Routes>
       <Route path="/" element={<Home />} />

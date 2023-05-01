@@ -76,12 +76,6 @@ const BookRoom = () => {
     Address,
   } = form;
 
-  const [totalPrice, totalPriceF] = useState(0);
-
-  useEffect(() => {
-    totalPriceF(Number(room.PricePerNight) * Number(numDays));
-  }, [numDays]);
-
   useEffect(() => {
     window.scroll(0, 0);
     const dateId = new Date().getTime();
@@ -158,6 +152,14 @@ const BookRoom = () => {
       id && nn();
     }
   }, [Rooms, id]);
+
+  const [totalPrice, totalPriceF] = useState(0);
+
+  useEffect(() => {
+    if (room) {
+      totalPriceF(Number(room?.PricePerNight) * Number(numDays));
+    }
+  }, [numDays]);
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
