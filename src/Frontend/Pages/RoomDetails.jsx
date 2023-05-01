@@ -33,7 +33,7 @@ const RoomDetails = () => {
             }}
           />
 
-          <div className="my-5 space-y-4 flex flex-col md:flex-row md:space-x-4 mb-14">
+          <div className="mt-6 mb-10 flex flex-col md:flex-row gap-5">
             <Link to={`/bookroom/${room.RoomName}`}>
               <button className="px-8 flex-1 flex py-3 hover:bg-black hover:text-white border-black border-2 uppercase text-sm font-semibold rounded-sm text-black ">
                 Book Room

@@ -39,7 +39,7 @@ const Pages = () => {
       <Route path="/shot" element={<Shot />} />
       <Route path="/demo" element={<DateInput />} />
 
-      {user && signInTypeAdmin && (
+      {user && (
         <>
           <Route path="/admin" element={<Dashboard />} />
           <Route path="/admin/updateroom/:id" element={<Dashboard />} />

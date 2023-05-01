@@ -54,9 +54,13 @@ const AddBooking = ({ setstate, pageStateF }) => {
 
   const [form, setform] = useState(initialState);
 
+  console.log(form);
+
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [numDays, setNumDays] = useState("");
+
+  console.log(numDays);
 
   const handleCheckInChange = (e) => {
     setCheckIn(e.target.value);
@@ -64,6 +68,10 @@ const AddBooking = ({ setstate, pageStateF }) => {
       const diffTime = Math.abs(new Date(checkOut) - new Date(e.target.value));
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       setNumDays(diffDays);
+      setform({
+        ...form,
+        daysOfReservation: diffDays,
+      });
     }
   };
 
@@ -73,6 +81,10 @@ const AddBooking = ({ setstate, pageStateF }) => {
       const diffTime = Math.abs(new Date(e.target.value) - new Date(checkIn));
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       setNumDays(diffDays);
+      setform({
+        ...form,
+        daysOfReservation: diffDays,
+      });
     }
   };
 
@@ -131,11 +143,12 @@ const AddBooking = ({ setstate, pageStateF }) => {
 
   const { id } = useParams();
 
-  //   console.log(form);
+  // const [updatedPriceState, updatedPriceStateF] = useState(totalPrice);
 
   useEffect(() => {
     id && getBookingDetail();
     id && pageStateF("booking");
+    updatedPriceStateF(totalPrice);
   }, [id]);
 
   const getBookingDetail = async () => {
@@ -171,19 +184,18 @@ const AddBooking = ({ setstate, pageStateF }) => {
     }
   };
 
+  const [updatedPriceState, updatedPriceStateF] = useState(totalPrice);
+
   useEffect(() => {
-    PricePerNightF(
-      Rooms.filter((room) => {
-        if (room.RoomName === roomType) {
-          return room.PricePerNight;
-        }
-      })
-    );
     setform({
       ...form,
-      totalPrice: Number(PricePerNight[0]?.PricePerNight) * Number(numDays),
+      totalPrice: Number(form?.PricePerNight) * Number(form?.daysOfReservation),
     });
   }, [numDays, roomType]);
+
+  console.log(totalPrice);
+
+  // const [first, setfirst] = useState(second);
 
   return (
     <div className="bg-white my-10 flex flex-col  p-4">
@@ -266,16 +278,16 @@ const AddBooking = ({ setstate, pageStateF }) => {
               <label className="label">
                 <span className="label-text text-black">Room Type</span>
               </label>
-              {/* <input
+              <input
                 className="input bg-white input-bordered w-full max-w-xs"
                 type="text"
                 name="roomType"
                 value={roomType}
                 readOnly
                 placeholder="Room Type"
-              /> */}
+              />
 
-              <select
+              {/* <select
                 value={roomType}
                 onChange={handleChange}
                 name="roomType"
@@ -288,7 +300,7 @@ const AddBooking = ({ setstate, pageStateF }) => {
                     </option>
                   </>
                 ))}
-              </select>
+              </select> */}
             </div>
           </div>
           <div className="flex justify-between w-full   my-[10px]">
@@ -440,7 +452,7 @@ const AddBooking = ({ setstate, pageStateF }) => {
                 value={totalPrice}
                 // onChange={handleChange}
                 readOnly
-                placeholder="Address"
+                placeholder="Total Price"
                 required
                 className="input bg-white input-bordered w-full max-w-xs"
               />

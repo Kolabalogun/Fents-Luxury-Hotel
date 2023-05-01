@@ -100,6 +100,7 @@ const BookRoom = () => {
           totalPrice,
           checkOut,
           timestamp: serverTimestamp(),
+          PricePerNight: room[0].PricePerNight,
         });
         await addDoc(collection(db, "Newsletter"), {
           email: email,
@@ -136,7 +137,11 @@ const BookRoom = () => {
 
   const { loader, Rooms } = useGlobalContext();
 
-  const [room, setroom] = useState(null);
+  const [room, setroom] = useState([
+    {
+      PricePerNight: 0,
+    },
+  ]);
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -153,13 +158,15 @@ const BookRoom = () => {
     }
   }, [Rooms, id]);
 
-  const [totalPrice, totalPriceF] = useState(0);
+  const [totalPrice, totalPriceF] = useState(
+    Number(room[0]?.PricePerNight) * Number(numDays)
+  );
 
   useEffect(() => {
     if (room) {
-      totalPriceF(Number(room?.PricePerNight) * Number(numDays));
+      totalPriceF(Number(room[0]?.PricePerNight) * Number(numDays));
     }
-  }, [numDays]);
+  }, [numDays, checkIn, checkOut]);
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
