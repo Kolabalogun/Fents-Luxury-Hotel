@@ -10,9 +10,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <AppProvider>
-        {/* <App /> */}
+        <App />
 
-        <h1>Fents Luxury Hotel</h1>
+        {/* <h1>Fents Luxury Hotel</h1> */}
       </AppProvider>
     </BrowserRouter>
   </React.StrictMode>
