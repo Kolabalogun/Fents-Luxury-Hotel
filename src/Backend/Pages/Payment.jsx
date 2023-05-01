@@ -50,7 +50,7 @@ const Payment = () => {
                 Total Pending Payment
               </div>
               <div className="stat-value w-[130px] text-[#5114b9] ">
-                {Bookings.filter((e) => e.payment === "due").length}
+                {Bookings.filter((e) => e.payment === "Due").length}
               </div>
             </div>
           </div>
