@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { NairaIcon } from "../../../assets/data";
 
 const RoomCard = ({ room, layout }) => {
   return (
@@ -20,8 +21,8 @@ const RoomCard = ({ room, layout }) => {
           {room.RoomName}
         </h1>
 
-        <div className="flex items-center mb-8 gap-1">
-          <img src="svg/naira.svg" alt="" className="h-7" />
+        <div className="flex items-center mb-8 ">
+          <img src={NairaIcon} alt="" className="h-7 mt-1.5" />
           <div className="roomprice ">
             {room.PricePerNight}
             <span className="per">/night</span>
