@@ -278,29 +278,32 @@ const AddBooking = ({ setstate, pageStateF }) => {
               <label className="label">
                 <span className="label-text text-black">Room Type</span>
               </label>
-              <input
-                className="input bg-white input-bordered w-full max-w-xs"
-                type="text"
-                name="roomType"
-                value={roomType}
-                readOnly
-                placeholder="Room Type"
-              />
 
-              {/* <select
-                value={roomType}
-                onChange={handleChange}
-                name="roomType"
-                className="select w-full max-w-xs  bg-white border input-bordered"
-              >
-                {RoomsList.map((opt, idx) => (
-                  <>
-                    <option key={idx} value={opt}>
-                      {opt}
-                    </option>
-                  </>
-                ))}
-              </select> */}
+              {id ? (
+                <input
+                  className="input bg-white input-bordered w-full max-w-xs"
+                  type="text"
+                  name="roomType"
+                  value={roomType}
+                  readOnly
+                  placeholder="Room Type"
+                />
+              ) : (
+                <select
+                  value={roomType}
+                  onChange={handleChange}
+                  name="roomType"
+                  className="select w-full max-w-xs  bg-white border input-bordered"
+                >
+                  {RoomsList.map((opt, idx) => (
+                    <>
+                      <option key={idx} value={opt}>
+                        {opt}
+                      </option>
+                    </>
+                  ))}
+                </select>
+              )}
             </div>
           </div>
           <div className="flex justify-between w-full   my-[10px]">
