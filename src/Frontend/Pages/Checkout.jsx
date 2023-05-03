@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 
+import NairaLogo from "../../assets/naira.svg";
+
 const Checkout = ({ form, room, checkIn, checkOut, numDays, handleSubmit }) => {
   return (
     <section className="my-5 md:my-14 flex flex-col mx-5 md:mx-24 xl:mx-56">
@@ -23,7 +25,13 @@ const Checkout = ({ form, room, checkIn, checkOut, numDays, handleSubmit }) => {
 
           <div className="flex justify-between mt-4">
             <h1 className="text-lg md:text-2xl">Price per Night</h1>
-            <h1 className="text-lg md:text-2xl">${room.PricePerNight}</h1>
+
+            <div className="flex gap-1 items-center">
+              <img src={NairaLogo} alt="" className=" h-4 md:h-5" />
+              <h1 className="text-lg md:text-2xl">{room.PricePerNight}</h1>
+            </div>
+
+            {/* <h1 className="text-lg md:text-2xl">${room.PricePerNight}</h1> */}
           </div>
 
           <div className="flex justify-between mt-4">
@@ -54,9 +62,13 @@ const Checkout = ({ form, room, checkIn, checkOut, numDays, handleSubmit }) => {
 
           <div className="flex justify-between mt-4">
             <h1 className="text-xl md:text-2xl">Total</h1>
-            <h1 className="text-2xl">
-              ${Number(room.PricePerNight) * Number(numDays)}
-            </h1>
+
+            <div className="flex gap-1 items-center">
+              <img src={NairaLogo} alt="" className=" h-4 md:h-7" />
+              <h1 className="text-2xl md:text-3xl">
+                {Number(room.PricePerNight) * Number(numDays)}
+              </h1>
+            </div>
           </div>
 
           <div className="mt-4 h-[2px] w-full bg-[#aaa]"></div>

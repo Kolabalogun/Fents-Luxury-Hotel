@@ -19,9 +19,13 @@ const RoomCard = ({ room, layout }) => {
         <h1 className="text-6xl mt-7 md:mt-0 text-center  mb-10">
           {room.RoomName}
         </h1>
-        <div className="roomprice ">
-          ${room.PricePerNight}
-          <span className="per">/night</span>
+
+        <div className="flex items-center mb-8 gap-1">
+          <img src="svg/naira.svg" alt="" className="h-7" />
+          <div className="roomprice ">
+            {room.PricePerNight}
+            <span className="per">/night</span>
+          </div>
         </div>
 
         <div

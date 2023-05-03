@@ -105,9 +105,7 @@ const AdminRooms = () => {
               >
                 <img src="svg/plus.svg" alt="" className="h-5" />
 
-                <h5 className="py-5 font-semibold text-[#344767]">
-                  New Article
-                </h5>
+                <h5 className="py-5 font-semibold text-[#344767]">New Room</h5>
               </div>
             </div>
           </div>
