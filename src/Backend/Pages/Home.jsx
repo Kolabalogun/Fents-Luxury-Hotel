@@ -221,7 +221,7 @@ const Home = () => {
           <h6 className="text-[#0d1727] text-2xl leading-relaxed font-semibold mb-1">
             Home
           </h6>
-          <p className="text-[13px]">Lorem ipsum dolor sit amet consectetur.</p>
+          {/* <p className="text-[13px]">Lorem ipsum dolor sit amet consectetur.</p> */}
         </div>
 
         <div className="m-3">

@@ -231,7 +231,7 @@ const NewRoom = ({ handleState }) => {
           </Link>
         </div>
 
-        <p className="text-[13px]">Lorem ipsum dolor sit amet consectetur.</p>
+        {/* <p className="text-[13px]">Lorem ipsum dolor sit amet consectetur.</p> */}
       </div>
 
       <div className="m-3">

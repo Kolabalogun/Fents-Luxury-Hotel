@@ -51,9 +51,9 @@ const AdminRooms = () => {
               <h1 className="text-[#0d1727] text-3xl leading-relaxed font-semibold mb-1">
                 Rooms
               </h1>
-              <p className="text-[13px]">
+              {/* <p className="text-[13px]">
                 Lorem ipsum dolor sit amet consectetur.
-              </p>
+              </p> */}
             </div>
 
             <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 my-5 mx-3">
