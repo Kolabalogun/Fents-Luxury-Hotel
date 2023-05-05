@@ -13,9 +13,10 @@ const Footer = () => {
             <h2 className="text-xl my-5">About Us</h2>
             <span>
               <p className="text-[14px]   font-rob my-5">
-                A hotel is an establishment that provides paid lodging on a
-                short-term basis. Facilities provided may range from a
-                modest-quality.
+                Fents Luxury Hotel has been elegantly crafted and prearranged to
+                achieve a measure of comfortable luxury to satisfy the senses of
+                every guest from all over the world. Ideally situated in a quiet
+                area of the city of Ilorin, Nigeria.
               </p>
             </span>
           </div>
@@ -44,7 +45,7 @@ const Footer = () => {
             <h2 className="text-xl my-5">Address</h2>
             <span>
               <p className="text-[14px]   font-rob my-2">
-                273 South Riverview Rd. Nigeria.
+                16, Irabon street, fate-tanke, Ilorin, Kwara state, Nigeria.
               </p>
             </span>
           </div>
@@ -52,8 +53,8 @@ const Footer = () => {
           <div className="flex flex-1 flex-col">
             <h2 className="text-xl my-5">Telephone</h2>
             <span>
-              <p className="text-[14px]   font-rob my-2">+1 234 5678 910</p>
-              <p className="text-[14px]   font-rob my-2">+1 234 5678 910</p>
+              <p className="text-[14px]   font-rob my-2">+234 810 395 1449</p>
+              {/* <p className="text-[14px]   font-rob my-2">+1 234 5678 910</p> */}
             </span>
           </div>
         </div>
