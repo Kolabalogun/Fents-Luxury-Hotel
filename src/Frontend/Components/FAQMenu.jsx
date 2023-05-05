@@ -9,7 +9,7 @@ const FAQMenu = () => {
         <Link className="underline border-b" to="/contact">
           Contact Us
         </Link>{" "}
-        or call us. +12.345.678.9012
+        or call us. +234 810 395 1449
       </h1>
     </div>
   );
